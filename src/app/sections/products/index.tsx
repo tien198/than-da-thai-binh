@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { ProductCard } from "./comps/product-card";
+import { ProductsMotion } from "./comps/products-motion";
 
 const products = [
   {
@@ -39,19 +40,19 @@ const products = [
 
 export function Products() {
   return (
-    <section
-      id="san-pham"
-      className="bg-cream px-5 py-12 sm:px-8 lg:px-20 lg:py-[72px]"
-      aria-labelledby="products-title"
-    >
+    <ProductsMotion>
       <div className="mx-auto max-w-[1280px]">
         <div className="mb-8 flex items-end justify-between gap-4 lg:mb-10">
           <div>
-            <p className="font-alumni-sans text-primary text-xs font-semibold tracking-[0.2em]">
+            <p
+              data-products-heading
+              className="font-alumni-sans text-primary text-xs font-semibold tracking-[0.2em]"
+            >
               SẢN PHẨM
             </p>
             <h2
               id="products-title"
+              data-products-heading
               className="mt-2 font-heading text-[30px] font-bold leading-tight text-coal-dark sm:text-4xl lg:text-[40px]"
             >
               Các loại than đá chúng tôi cung cấp
@@ -59,13 +60,14 @@ export function Products() {
           </div>
           <a
             href="#lien-he"
+            data-products-heading
             className="hidden h-11 shrink-0 items-center gap-2 rounded-sm border border-coal-dark px-7 text-sm font-bold text-coal-dark transition-colors hover:bg-coal-dark hover:text-white sm:flex"
           >
             Nhận báo giá <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div data-products-grid className="grid gap-4 lg:grid-cols-2">
           <ProductCard
             featured
             tag="Nội địa"
@@ -79,6 +81,6 @@ export function Products() {
           ))}
         </div>
       </div>
-    </section>
+    </ProductsMotion>
   );
 }

@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
+import { SupplyMosaicMotion } from "./comps/supply-mosaic-motion";
 import { SupplyTile } from "./comps/supply-tile";
 
 const tileLabel = "text-[9px] font-bold tracking-[0.16em] text-brand-flame lg:text-[11px]";
@@ -7,8 +8,8 @@ const tileLabel = "text-[9px] font-bold tracking-[0.16em] text-brand-flame lg:te
 export function SupplyMosaic() {
   return (
     <section id="nang-luc" className="bg-cream-mid px-5 py-12 sm:px-8 lg:px-20 lg:py-[72px]" aria-labelledby="supply-title">
-      <div className="mx-auto max-w-[1280px]">
-        <div className="mb-8 flex flex-col justify-between gap-5 lg:mb-10 lg:flex-row lg:items-end">
+      <SupplyMosaicMotion>
+        <div data-supply-heading className="mb-8 flex flex-col justify-between gap-5 lg:mb-10 lg:flex-row lg:items-end">
           <div className="max-w-[820px]">
             <p className="text-xs font-bold tracking-[0.2em] text-ember-dark">NĂNG LỰC CUNG ỨNG</p>
             <h2 id="supply-title" className="mt-2 font-heading text-[30px] font-semibold leading-[1.08] text-coal-dark sm:text-4xl lg:text-[42px]">
@@ -24,11 +25,12 @@ export function SupplyMosaic() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-[400px_minmax(0,1fr)] lg:gap-4">
+        <div data-supply-grid className="grid grid-cols-2 gap-2.5 lg:grid-cols-[400px_minmax(0,1fr)] lg:gap-4">
           <div className="flex flex-col gap-2.5 lg:gap-4">
             <SupplyTile
               image="/images/home/p5dm87.webp"
               alt="Bãi than Quảng Ninh"
+              revealOrder={0}
               className="h-60 lg:h-[328px]"
               overlayClassName="bg-[linear-gradient(180deg,rgba(17,16,14,0.08),rgba(17,16,14,0.92))]"
               contentClassName="inset-x-3 bottom-4 lg:inset-x-7 lg:bottom-11"
@@ -43,6 +45,7 @@ export function SupplyMosaic() {
             <SupplyTile
               image="/images/home/ZZbby.webp"
               alt="Vận chuyển than đường bộ"
+              revealOrder={2}
               className="h-[140px] lg:h-48"
               overlayClassName="bg-coal-dark/70"
               contentClassName="inset-x-3 top-4 lg:inset-x-7 lg:top-7"
@@ -57,6 +60,7 @@ export function SupplyMosaic() {
             <SupplyTile
               image="/images/home/O4XKhZ.webp"
               alt="Tàu vận chuyển nguồn than nhập khẩu"
+              revealOrder={1}
               className="h-[140px] lg:h-44"
               overlayClassName="bg-[linear-gradient(90deg,rgba(17,16,14,0.95),rgba(17,16,14,0.08))]"
               contentClassName="inset-x-3 top-4 lg:left-7 lg:top-7"
@@ -69,6 +73,7 @@ export function SupplyMosaic() {
             <SupplyTile
               image="/images/home/VOXoW.webp"
               alt="Than đá được kiểm soát theo từng lô"
+              revealOrder={3}
               className="h-60 lg:h-[344px]"
               overlayClassName="bg-[linear-gradient(180deg,rgba(17,16,14,0.12),rgba(17,16,14,0.9))]"
               contentClassName="inset-x-3 bottom-4 lg:inset-x-8 lg:bottom-8"
@@ -82,7 +87,7 @@ export function SupplyMosaic() {
             </SupplyTile>
           </div>
         </div>
-      </div>
+      </SupplyMosaicMotion>
     </section>
   );
 }

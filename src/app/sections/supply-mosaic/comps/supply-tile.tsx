@@ -10,6 +10,7 @@ type SupplyTileProps = {
   contentClassName?: string;
   image: string;
   overlayClassName: string;
+  revealOrder: number;
 };
 
 export function SupplyTile({
@@ -19,12 +20,22 @@ export function SupplyTile({
   contentClassName,
   image,
   overlayClassName,
+  revealOrder,
 }: SupplyTileProps) {
   return (
-    <article className={cn("relative isolate overflow-hidden rounded-sm border border-cream-dark", className)}>
+    <article
+      data-supply-tile
+      data-reveal-order={revealOrder}
+      className={cn(
+        "relative isolate overflow-hidden rounded-sm border border-cream-dark",
+        className,
+      )}
+    >
       <Image src={image} alt={alt} fill sizes="(max-width: 1023px) 50vw, 60vw" className="-z-20 object-cover" />
       <div className={cn("absolute inset-0 -z-10", overlayClassName)} />
-      <div className={cn("absolute", contentClassName)}>{children}</div>
+      <div data-supply-copy className={cn("absolute", contentClassName)}>
+        {children}
+      </div>
     </article>
   );
 }

@@ -31,9 +31,14 @@ export function ProductCard({
 }: ProductCardProps) {
   if (featured) {
     return (
-      <article className="overflow-hidden rounded-sm border border-border bg-white lg:relative lg:row-span-2 lg:h-[540px] lg:border-0 lg:bg-coal-dark">
+      <article
+        data-product-card
+        data-product-featured
+        className="overflow-hidden rounded-sm border border-border bg-white lg:relative lg:row-span-2 lg:h-[540px] lg:border-0 lg:bg-coal-dark"
+      >
         <div className="relative h-[196px] lg:absolute lg:inset-0 lg:h-auto">
           <Image
+            data-product-image
             src={image}
             alt={imageAlt}
             fill
@@ -61,9 +66,13 @@ export function ProductCard({
   }
 
   return (
-    <article className="flex min-h-[146px] overflow-hidden rounded-sm border border-border bg-white lg:h-[260px]">
+    <article
+      data-product-card
+      className="flex min-h-[146px] overflow-hidden rounded-sm border border-border bg-white lg:h-[260px]"
+    >
       <div className="relative w-[118px] shrink-0 lg:w-[150px]">
         <Image
+          data-product-image
           src={image}
           alt={imageAlt}
           fill
