@@ -8,20 +8,20 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const bricolageGrotesque = Bricolage_Grotesque({
-  variable: "--font-bricolage-grotesque",
+  variable: "--next-font-bricolage-grotesque",
   subsets: ["latin", "vietnamese"],
   weight: "variable",
 });
 
 const notoSans = Noto_Sans({
-  variable: "--font-noto-sans",
+  variable: "--next-font-noto-sans",
   subsets: ["latin", "vietnamese"],
   weight: "variable",
   style: ["normal", "italic"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--next-font-geist-mono",
   subsets: ["latin"],
 });
 
