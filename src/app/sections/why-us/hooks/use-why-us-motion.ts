@@ -30,10 +30,12 @@ export function useWhyUsMotion(
 
       const heading = root.querySelector<HTMLElement>("[data-why-us-heading]");
       const content = root.querySelector<HTMLElement>("[data-why-us-content]");
-      const mediaCard = root.querySelector<HTMLElement>("[data-why-us-media]");
-      const mediaImage = root.querySelector<HTMLElement>("[data-why-us-image]");
-      const mediaCopy = root.querySelector<HTMLElement>(
-        "[data-why-us-media-copy]",
+      const featureStage = root.querySelector<HTMLElement>(
+        "[data-why-us-feature-stage]",
+      );
+      const featureLists = gsap.utils.toArray<HTMLElement>(
+        "[data-why-us-list]",
+        root,
       );
       const featureItems = gsap.utils.toArray<HTMLElement>(
         "[data-why-us-item]",
@@ -43,6 +45,11 @@ export function useWhyUsMotion(
         (first, second) =>
           Number(first.dataset.revealOrder) -
           Number(second.dataset.revealOrder),
+      );
+      const mediaCard = root.querySelector<HTMLElement>("[data-why-us-media]");
+      const mediaImage = root.querySelector<HTMLElement>("[data-why-us-image]");
+      const mediaCopy = root.querySelector<HTMLElement>(
+        "[data-why-us-media-copy]",
       );
       const media = gsap.matchMedia();
 
@@ -72,7 +79,7 @@ export function useWhyUsMotion(
                 y: 0,
                 scrollTrigger: {
                   trigger: heading,
-                  start: isDesktop ? "top 82%" : "top 88%",
+                  start: isDesktop ? "top 72%" : "top 78%",
                   once: true,
                   invalidateOnRefresh: true,
                 },
@@ -80,160 +87,164 @@ export function useWhyUsMotion(
             );
           }
 
-          if (isDesktop && content && mediaCard) {
-            const contentTimeline = gsap.timeline({
+          if (!content || !mediaCard || !orderedFeatureItems.length) return;
+
+          // Keep the default refresh order so preceding pinned sections add
+          // their spacer height before this section measures its start.
+          if (isDesktop) {
+            gsap.set(orderedFeatureItems, {
+              opacity: 0,
+              x: (_, item) =>
+                (item as HTMLElement).dataset.whyUsSide === "left" ? -38 : 38,
+              y: 10,
+              willChange: "transform, opacity",
+            });
+
+            const desktopTimeline = gsap.timeline({
               defaults: { ease: "power3.out" },
               scrollTrigger: {
                 trigger: content,
-                start: "top 80%",
-                once: true,
+                start: "top 6%",
+                end: () => `+=${orderedFeatureItems.length * 250}`,
+                pin: true,
+                pinSpacing: true,
+                scrub: 0.7,
+                anticipatePin: 1,
                 invalidateOnRefresh: true,
               },
             });
 
-            contentTimeline.addLabel("content-in", 0);
-            contentTimeline.fromTo(
-              mediaCard,
-              { autoAlpha: 0, scale: 0.97, y: 34 },
-              {
-                autoAlpha: 1,
-                clearProps: "transform,opacity,visibility,willChange",
-                duration: 0.82,
-                scale: 1,
-                willChange: "transform, opacity",
-                y: 0,
-              },
-              "content-in",
-            );
+            desktopTimeline.addLabel("desktop-media-in", 0.55);
 
             if (mediaImage) {
-              contentTimeline.fromTo(
+              desktopTimeline.fromTo(
                 mediaImage,
-                { scale: 1.1 },
+                { scale: 1.08 },
                 {
-                  clearProps: "transform,willChange",
-                  duration: 1.05,
+                  duration: 1.1,
                   ease: "power2.out",
                   scale: 1,
                   willChange: "transform",
                 },
-                "content-in",
+                "desktop-media-in",
               );
             }
 
             if (mediaCopy) {
-              contentTimeline.fromTo(
+              desktopTimeline.fromTo(
                 mediaCopy,
-                { autoAlpha: 0, y: 18 },
+                { opacity: 0, y: 16 },
                 {
-                  autoAlpha: 1,
-                  clearProps: "transform,opacity,visibility,willChange",
-                  duration: 0.55,
+                  duration: 0.52,
+                  opacity: 1,
                   willChange: "transform, opacity",
                   y: 0,
                 },
-                "content-in+=0.24",
+                "desktop-media-in+=0.1",
               );
             }
 
-            contentTimeline.fromTo(
-              orderedFeatureItems,
-              {
-                autoAlpha: 0,
-                x: (_, item) =>
-                  (item as HTMLElement).dataset.whyUsSide === "left"
-                    ? -34
-                    : 34,
-                y: 10,
-              },
-              {
-                autoAlpha: 1,
-                clearProps: "transform,opacity,visibility,willChange",
-                duration: 0.68,
-                stagger: 0.09,
-                willChange: "transform, opacity",
-                x: 0,
-                y: 0,
-              },
-              "content-in+=0.12",
-            );
+            orderedFeatureItems.forEach((item, index) => {
+              const label = `desktop-feature-${index}`;
+
+              desktopTimeline.addLabel(label, 0.95 + index * 0.82);
+              desktopTimeline.to(
+                item,
+                {
+                  duration: 0.62,
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                },
+                label,
+              );
+            });
 
             return;
           }
 
-          if (mediaCard) {
-            const mediaTimeline = gsap.timeline({
-              defaults: { ease: "power3.out" },
-              scrollTrigger: {
-                trigger: mediaCard,
-                start: "top 88%",
-                once: true,
-                invalidateOnRefresh: true,
-              },
-            });
+          if (!featureStage || !featureLists.length) return;
 
-            mediaTimeline.fromTo(
-              mediaCard,
-              { autoAlpha: 0, scale: 0.985, y: 26 },
+          gsap.set(featureLists, { display: "contents" });
+          gsap.set(orderedFeatureItems, {
+            inset: 0,
+            opacity: 0,
+            position: "absolute",
+            willChange: "transform, opacity",
+            y: 22,
+          });
+
+          const mobileTimeline = gsap.timeline({
+            defaults: { ease: "power3.out" },
+            scrollTrigger: {
+              trigger: content,
+              start: "top 5%",
+              end: () => `+=${orderedFeatureItems.length * 235}`,
+              pin: true,
+              pinSpacing: true,
+              scrub: 0.45,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          mobileTimeline.addLabel("mobile-media-in", 0.45);
+
+          if (mediaImage) {
+            mobileTimeline.fromTo(
+              mediaImage,
+              { scale: 1.06 },
               {
-                autoAlpha: 1,
-                clearProps: "transform,opacity,visibility,willChange",
-                duration: 0.68,
+                duration: 1,
+                ease: "power2.out",
                 scale: 1,
-                willChange: "transform, opacity",
-                y: 0,
+                willChange: "transform",
               },
+              "mobile-media-in",
             );
-
-            if (mediaImage) {
-              mediaTimeline.fromTo(
-                mediaImage,
-                { scale: 1.07 },
-                {
-                  clearProps: "transform,willChange",
-                  duration: 0.84,
-                  ease: "power2.out",
-                  scale: 1,
-                  willChange: "transform",
-                },
-                "<",
-              );
-            }
-
-            if (mediaCopy) {
-              mediaTimeline.fromTo(
-                mediaCopy,
-                { autoAlpha: 0, y: 12 },
-                {
-                  autoAlpha: 1,
-                  clearProps: "transform,opacity,visibility,willChange",
-                  duration: 0.48,
-                  willChange: "transform, opacity",
-                  y: 0,
-                },
-                "<0.2",
-              );
-            }
           }
 
-          featureItems.forEach((item) => {
-            gsap.fromTo(
-              item,
-              { autoAlpha: 0, y: 22 },
+          if (mediaCopy) {
+            mobileTimeline.fromTo(
+              mediaCopy,
+              { opacity: 0, y: 12 },
               {
-                autoAlpha: 1,
-                clearProps: "transform,opacity,visibility,willChange",
-                duration: 0.58,
-                ease: "power3.out",
+                duration: 0.46,
+                opacity: 1,
                 willChange: "transform, opacity",
                 y: 0,
-                scrollTrigger: {
-                  trigger: item,
-                  start: "top 90%",
-                  once: true,
-                  invalidateOnRefresh: true,
-                },
               },
+              "mobile-media-in+=0.1",
+            );
+          }
+
+          orderedFeatureItems.forEach((item, index) => {
+            const label = `mobile-feature-${index}`;
+            const revealAt = 0.8 + index * 0.9;
+
+            mobileTimeline.addLabel(label, revealAt);
+
+            if (index > 0) {
+              mobileTimeline.to(
+                orderedFeatureItems[index - 1],
+                {
+                  duration: 0.26,
+                  ease: "power2.in",
+                  opacity: 0,
+                  y: -16,
+                },
+                label,
+              );
+            }
+
+            mobileTimeline.to(
+              item,
+              {
+                duration: 0.46,
+                opacity: 1,
+                y: 0,
+              },
+              `${label}+=${index === 0 ? 0 : 0.12}`,
             );
           });
         },

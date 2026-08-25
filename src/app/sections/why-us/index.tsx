@@ -58,18 +58,31 @@ export function WhyUs() {
         </div>
 
         <div data-why-us-content className="mt-10 grid gap-8 lg:mx-auto lg:mt-12 lg:max-w-[1204px] lg:grid-cols-3 lg:items-center">
-          <div data-why-us-list className="order-2 flex flex-col gap-8 lg:order-none">
-            {leftFeatures.map((feature, index) => (
-              <FeatureItem
-                key={feature.title}
-                {...feature}
-                revealOrder={index * 2}
-                side="left"
-              />
-            ))}
+          <div data-why-us-feature-stage className="relative order-2 grid min-h-[150px] gap-8 sm:min-h-[124px] lg:contents lg:min-h-0">
+            <div data-why-us-list className="flex flex-col gap-8 lg:col-start-1 lg:row-start-1">
+              {leftFeatures.map((feature, index) => (
+                <FeatureItem
+                  key={feature.title}
+                  {...feature}
+                  revealOrder={index * 2}
+                  side="left"
+                />
+              ))}
+            </div>
+
+            <div data-why-us-list className="flex flex-col gap-8 lg:col-start-3 lg:row-start-1">
+              {rightFeatures.map((feature, index) => (
+                <FeatureItem
+                  key={feature.title}
+                  {...feature}
+                  revealOrder={index * 2 + 1}
+                  side="right"
+                />
+              ))}
+            </div>
           </div>
 
-          <div data-why-us-media className="order-1 relative h-[300px] overflow-hidden rounded-lg border border-border bg-cream lg:order-none lg:h-[480px]">
+          <div data-why-us-media className="order-1 relative h-[clamp(170px,42svh,300px)] overflow-hidden rounded-lg border border-border bg-cream lg:col-start-2 lg:row-start-1 lg:h-[480px]">
             <Image
               data-why-us-image
               src="/images/home/MEy4z.webp"
@@ -83,17 +96,6 @@ export function WhyUs() {
               <p className="text-[11px] font-bold tracking-[0.15em] text-ember-gold">ĐƠN HÀNG TỪ 10 TẤN TRỞ LÊN</p>
               <p className="mt-1 text-[13px] font-light text-white">Giao tận kho các nhà máy khu vực phía Nam</p>
             </div>
-          </div>
-
-          <div data-why-us-list className="order-3 flex flex-col gap-8 lg:order-none">
-            {rightFeatures.map((feature, index) => (
-              <FeatureItem
-                key={feature.title}
-                {...feature}
-                revealOrder={index * 2 + 1}
-                side="right"
-              />
-            ))}
           </div>
         </div>
       </WhyUsMotion>
