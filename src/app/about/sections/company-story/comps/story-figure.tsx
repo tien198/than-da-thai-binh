@@ -18,14 +18,15 @@ export function StoryFigure() {
             TUYẾN CUNG ỨNG
           </span>
           <span className="mt-0.5 block text-[10px] leading-[1.35] text-white lg:text-[13px] lg:font-semibold">
-            Quảng Ninh&nbsp; → &nbsp;Kho trung chuyển&nbsp; → &nbsp;Nhà máy phía Nam
+            Quảng Ninh&nbsp; → &nbsp;Kho trung chuyển&nbsp; → &nbsp;Nhà máy phía
+            Nam
           </span>
           <span className="mt-0.5 block text-[8px] font-semibold text-[#91877b] lg:hidden">
-            TD•TB / 1945
+            TD•TB / 1995
           </span>
         </span>
         <span className="hidden font-display text-[13px] font-semibold tracking-[0.15em] text-text-on-dark/55 lg:block">
-          TD•TB / 1945
+          TD•TB / 1995
         </span>
       </figcaption>
     </figure>

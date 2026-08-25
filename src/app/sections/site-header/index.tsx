@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Building2,
   ChevronDown,
@@ -5,10 +7,18 @@ import {
   Home,
   Mail,
   Menu,
-  Phone,
   PhoneCall,
+  X,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import {
+  type MouseEvent as ReactMouseEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { Brand } from "./comps/brand";
 
@@ -42,8 +52,92 @@ type SiteHeaderProps = {
 };
 
 export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
+  const router = useRouter();
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [menuState, setMenuState] = useState<"closed" | "closing" | "open">(
+    "closed",
+  );
   const ActiveIcon = activePage === "about" ? Building2 : Home;
   const activeLabel = activePage === "about" ? "GIỚI THIỆU" : "TRANG CHỦ";
+  const isMenuVisible = menuState !== "closed";
+
+  const finishClosing = useCallback(
+    (destination?: string) => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      closeTimerRef.current = setTimeout(
+        () => {
+          setMenuState("closed");
+          closeTimerRef.current = null;
+
+          if (destination) {
+            router.push(destination);
+          }
+        },
+        reduceMotion ? 0 : 300,
+      );
+    },
+    [router],
+  );
+
+  const closeMenu = useCallback(
+    (destination?: string) => {
+      if (menuState !== "open") return;
+
+      setMenuState("closing");
+      finishClosing(destination);
+    },
+    [finishClosing, menuState],
+  );
+
+  function handleNavigation(
+    event: ReactMouseEvent<HTMLAnchorElement>,
+    destination: string,
+  ) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    closeMenu(destination);
+  }
+
+  useEffect(() => {
+    if (!isMenuVisible) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closeMenu, isMenuVisible]);
+
+  useEffect(
+    () => () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    },
+    [],
+  );
 
   return (
     <header id="top" className="relative z-50 bg-white">
@@ -84,50 +178,89 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
             {activeLabel}
           </Link>
 
-          <details className="group relative">
-            <summary className="flex cursor-pointer list-none items-center gap-2 text-white [&::-webkit-details-marker]:hidden">
-              <span className="text-[9px] font-bold tracking-[0.1em] text-[#beb6ac]">
-                MENU
-              </span>
-              <Menu className="size-[18px]" aria-hidden="true" />
-              <span className="sr-only">Mở menu điều hướng</span>
-            </summary>
-            <nav className="absolute right-0 top-9 w-[min(320px,calc(100vw-40px))] border border-white/10 bg-nav-bg p-3 shadow-xl">
-              <Link
-                href="/"
-                aria-current={activePage === "home" ? "page" : undefined}
-                className={`flex items-center gap-2 border-b border-white/10 px-3 py-3 text-xs font-bold tracking-wider ${
-                  activePage === "home"
-                    ? "text-ember-gold"
-                    : "text-text-on-dark"
-                }`}
-              >
-                <Home className="size-4" aria-hidden="true" /> TRANG CHỦ
-              </Link>
-              {navigation.map((item) => {
-                const isActive = item.key === activePage;
+          <button
+            type="button"
+            aria-controls="mobile-navigation"
+            aria-expanded={isMenuVisible}
+            onClick={() => setMenuState("open")}
+            className="flex items-center gap-2 text-white"
+          >
+            <span className="text-[9px] font-bold tracking-[0.1em] text-[#beb6ac]">
+              MENU
+            </span>
+            <Menu className="size-[18px]" aria-hidden="true" />
+            <span className="sr-only">Mở menu điều hướng</span>
+          </button>
 
-                return (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`block border-b border-white/10 px-3 py-3 text-xs font-bold tracking-wider last:border-0 ${
-                      isActive ? "text-ember-gold" : "text-text-on-dark"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <Link
-                href="/gioi-thieu#lien-he"
-                className="mt-3 flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-sm font-bold text-coal-black"
+          {isMenuVisible ? (
+            <div
+              className={`fixed inset-0 z-[60] overflow-y-auto bg-nav-bg motion-reduce:animate-none ${
+                menuState === "closing"
+                  ? "animate-out fade-out slide-out-to-left animation-duration-300 ease-in"
+                  : "animate-in fade-in slide-in-from-left animation-duration-300 ease-out"
+              }`}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu điều hướng"
+            >
+              <div className="flex h-[72px] items-center justify-between gap-3 border-b border-border bg-white px-5 sm:px-8">
+                <Brand />
+                <button
+                  type="button"
+                  onClick={() => closeMenu()}
+                  className="grid size-10 shrink-0 place-items-center text-coal-dark"
+                  aria-label="Đóng menu điều hướng"
+                >
+                  <X className="size-5" aria-hidden="true" />
+                </button>
+              </div>
+
+              <nav
+                id="mobile-navigation"
+                className="flex min-h-[calc(100dvh-72px)] flex-col px-5 py-6 sm:px-8"
               >
-                <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
-              </Link>
-            </nav>
-          </details>
+                <Link
+                  href="/"
+                  onClick={(event) => handleNavigation(event, "/")}
+                  aria-current={activePage === "home" ? "page" : undefined}
+                  className={`flex items-center gap-2 border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider ${
+                    activePage === "home"
+                      ? "text-ember-gold"
+                      : "text-text-on-dark"
+                  }`}
+                >
+                  <Home className="size-4" aria-hidden="true" /> TRANG CHỦ
+                </Link>
+                {navigation.map((item) => {
+                  const isActive = item.key === activePage;
+
+                  return (
+                    <Link
+                      key={item.key}
+                      href={item.href}
+                      onClick={(event) => handleNavigation(event, item.href)}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`block border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider last:border-0 ${
+                        isActive ? "text-ember-gold" : "text-text-on-dark"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+                <Link
+                  href="/gioi-thieu#lien-he"
+                  onClick={(event) =>
+                    handleNavigation(event, "/gioi-thieu#lien-he")
+                  }
+                  className="mt-auto flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-sm font-bold text-coal-black"
+                >
+                  <FileText className="size-4" aria-hidden="true" /> Nhận báo
+                  giá
+                </Link>
+              </nav>
+            </div>
+          ) : null}
         </div>
       </div>
 

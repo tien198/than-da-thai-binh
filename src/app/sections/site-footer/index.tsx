@@ -16,12 +16,6 @@ const contactDetails = [
     href: "mailto:thanthaibinh@gmail.com",
   },
   {
-    icon: Globe,
-    label: "Website",
-    value: "thandathaibinh24h.vn",
-    href: "https://thandathaibinh24h.vn",
-  },
-  {
     icon: MapPin,
     label: "Trụ sở",
     value:
@@ -49,8 +43,8 @@ export function SiteFooter() {
             sẽ tư vấn loại than và báo giá phù hợp.
           </p>
           <p className="mt-6 hidden max-w-[460px] text-[15px] leading-[1.6] text-text-muted lg:block">
-            Đặt hàng từ 10 tấn trở lên. Liên hệ ngay để nhận báo giá tốt nhất
-            và chính sách vận chuyển ưu đãi.
+            Đặt hàng từ 10 tấn trở lên. Liên hệ ngay để nhận báo giá tốt nhất và
+            chính sách vận chuyển ưu đãi.
           </p>
 
           <address className="mt-5 flex flex-col gap-[14px] not-italic lg:mt-6 lg:gap-4">

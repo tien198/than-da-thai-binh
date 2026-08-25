@@ -32,11 +32,11 @@ export function CompanyStory() {
             điểm cần đốt.
           </p>
           <p className="mt-4 text-xs leading-[1.55] text-text-muted lg:mt-[22px] lg:text-sm lg:leading-[1.75]">
-            Khởi nguồn từ năm 1945, doanh nghiệp chuyên cung cấp than đá Quảng
-            Ninh chất lượng cao và các dòng than nhập khẩu cho khu vực phía
-            Nam. Kinh nghiệm phân phối thực tế giúp chúng tôi phục vụ linh hoạt
-            từ xưởng sản xuất đến nhà máy công nghiệp, với đơn hàng từ 10 tấn
-            trở lên.
+            Khởi nguồn từ năm 1995, doanh nghiệp chuyên cung cấp than đá Quảng
+            Ninh chất lượng cao và các dòng than nhập khẩu cho khu vực phía Nam.
+            Kinh nghiệm phân phối thực tế giúp chúng tôi phục vụ linh hoạt từ
+            xưởng sản xuất đến nhà máy công nghiệp, với đơn hàng từ 10 tấn trở
+            lên.
           </p>
           <blockquote className="mt-4 border-l-2 border-ember-dark pl-3 font-display text-sm text-ember-dark lg:mt-[22px] lg:pl-5 lg:text-[21px] lg:font-medium">
             “Đốt sáng niềm tin, thắp lửa thành công.”
