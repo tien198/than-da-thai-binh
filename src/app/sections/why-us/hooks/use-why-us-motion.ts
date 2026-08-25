@@ -20,6 +20,35 @@ function getElementChildren(element: Element | null) {
   );
 }
 
+function getViewportCoverTransform(element: HTMLElement | null) {
+  if (!element || typeof window === "undefined") {
+    return { scale: 3, x: 0, y: 100 };
+  }
+
+  const rect = element.getBoundingClientRect();
+  const width = rect.width || element.offsetWidth || 1;
+  const height = rect.height || element.offsetHeight || 1;
+  const vpWidth =
+    window.innerWidth || document.documentElement.clientWidth || 1;
+  const vpHeight =
+    window.innerHeight || document.documentElement.clientHeight || 1;
+
+  // Scale needed to cover both viewport dimensions
+  const scaleX = vpWidth / width;
+  const scaleY = vpHeight / height;
+  const scale = Math.max(scaleX, scaleY, 1.5);
+
+  // Offset to align bottom of card with bottom of viewport
+  const y = vpHeight - rect.bottom;
+
+  // Offset to center card horizontally in viewport
+  const cardCenterX = rect.left + width / 2;
+  const vpCenterX = vpWidth / 2;
+  const x = vpCenterX - cardCenterX;
+
+  return { scale, x, y };
+}
+
 export function useWhyUsMotion(
   rootRef: RefObject<HTMLDivElement | null>,
 ) {
@@ -93,19 +122,43 @@ export function useWhyUsMotion(
           // their spacer height before this section measures its start.
           if (isDesktop) {
             gsap.set(orderedFeatureItems, {
-              opacity: 0,
+              autoAlpha: 0,
               x: (_, item) =>
                 (item as HTMLElement).dataset.whyUsSide === "left" ? -38 : 38,
-              y: 10,
+              y: 0,
               willChange: "transform, opacity",
             });
+
+            if (mediaCopy) {
+              gsap.set(mediaCopy, {
+                autoAlpha: 0,
+                y: 18,
+                willChange: "transform, opacity",
+              });
+            }
+
+            if (mediaCard) {
+              gsap.set(mediaCard, {
+                autoAlpha: 0,
+                transformOrigin: "50% 100%",
+                willChange: "transform, opacity",
+                zIndex: 10,
+              });
+            }
+
+            if (mediaImage) {
+              gsap.set(mediaImage, {
+                transformOrigin: "50% 50%",
+                willChange: "transform",
+              });
+            }
 
             const desktopTimeline = gsap.timeline({
               defaults: { ease: "power3.out" },
               scrollTrigger: {
                 trigger: content,
                 start: "top 6%",
-                end: () => `+=${orderedFeatureItems.length * 250}`,
+                end: () => `+=${orderedFeatureItems.length * 280 + 750}`,
                 pin: true,
                 pinSpacing: true,
                 scrub: 0.7,
@@ -114,45 +167,78 @@ export function useWhyUsMotion(
               },
             });
 
-            desktopTimeline.addLabel("desktop-media-in", 0.55);
+            // Phase 1: The media card zooms in from viewport-covering bottom to its position
+            desktopTimeline.addLabel("phase-1-media", 0);
+            if (mediaCard) {
+              desktopTimeline.fromTo(
+                mediaCard,
+                {
+                  autoAlpha: 0,
+                  scale: () => getViewportCoverTransform(mediaCard).scale,
+                  transformOrigin: "50% 100%",
+                  x: () => getViewportCoverTransform(mediaCard).x,
+                  y: () => getViewportCoverTransform(mediaCard).y,
+                },
+                {
+                  autoAlpha: 1,
+                  duration: 1.25,
+                  ease: "power2.out",
+                  immediateRender: true,
+                  scale: 1,
+                  x: 0,
+                  y: 0,
+                },
+                "phase-1-media",
+              );
+            }
 
             if (mediaImage) {
               desktopTimeline.fromTo(
                 mediaImage,
-                { scale: 1.08 },
                 {
-                  duration: 1.1,
-                  ease: "power2.out",
-                  scale: 1,
-                  willChange: "transform",
+                  scale: 1.08,
+                  transformOrigin: "50% 50%",
                 },
-                "desktop-media-in",
+                {
+                  duration: 1.25,
+                  ease: "power2.out",
+                  immediateRender: true,
+                  scale: 1,
+                },
+                "phase-1-media",
               );
             }
 
+            // Phase 2: The image caption settles in
+            desktopTimeline.addLabel("phase-2-caption", ">");
             if (mediaCopy) {
-              desktopTimeline.fromTo(
+              desktopTimeline.to(
                 mediaCopy,
-                { opacity: 0, y: 16 },
                 {
-                  duration: 0.52,
-                  opacity: 1,
-                  willChange: "transform, opacity",
+                  autoAlpha: 1,
+                  duration: 0.55,
+                  ease: "power2.out",
                   y: 0,
                 },
-                "desktop-media-in+=0.1",
+                "phase-2-caption",
               );
             }
 
+            // Phase 3: Only afterward do the feature cards reveal
+            desktopTimeline.addLabel("phase-3-features", ">+=0.1");
             orderedFeatureItems.forEach((item, index) => {
               const label = `desktop-feature-${index}`;
 
-              desktopTimeline.addLabel(label, 0.95 + index * 0.82);
+              desktopTimeline.addLabel(
+                label,
+                index === 0 ? "phase-3-features" : ">+=0.1",
+              );
               desktopTimeline.to(
                 item,
                 {
+                  autoAlpha: 1,
                   duration: 0.62,
-                  opacity: 1,
+                  ease: "power3.out",
                   x: 0,
                   y: 0,
                 },
@@ -167,19 +253,43 @@ export function useWhyUsMotion(
 
           gsap.set(featureLists, { display: "contents" });
           gsap.set(orderedFeatureItems, {
+            autoAlpha: 0,
             inset: 0,
-            opacity: 0,
             position: "absolute",
             willChange: "transform, opacity",
             y: 22,
           });
+
+          if (mediaCopy) {
+            gsap.set(mediaCopy, {
+              autoAlpha: 0,
+              y: 14,
+              willChange: "transform, opacity",
+            });
+          }
+
+          if (mediaCard) {
+            gsap.set(mediaCard, {
+              autoAlpha: 0,
+              transformOrigin: "50% 100%",
+              willChange: "transform, opacity",
+              zIndex: 10,
+            });
+          }
+
+          if (mediaImage) {
+            gsap.set(mediaImage, {
+              transformOrigin: "50% 50%",
+              willChange: "transform",
+            });
+          }
 
           const mobileTimeline = gsap.timeline({
             defaults: { ease: "power3.out" },
             scrollTrigger: {
               trigger: content,
               start: "top 5%",
-              end: () => `+=${orderedFeatureItems.length * 235}`,
+              end: () => `+=${orderedFeatureItems.length * 250 + 650}`,
               pin: true,
               pinSpacing: true,
               scrub: 0.45,
@@ -188,49 +298,81 @@ export function useWhyUsMotion(
             },
           });
 
-          mobileTimeline.addLabel("mobile-media-in", 0.45);
+          // Phase 1: The media card zooms in from viewport-covering bottom to its position
+          mobileTimeline.addLabel("phase-1-media", 0);
+          if (mediaCard) {
+            mobileTimeline.fromTo(
+              mediaCard,
+              {
+                autoAlpha: 0,
+                scale: () => getViewportCoverTransform(mediaCard).scale,
+                transformOrigin: "50% 100%",
+                x: () => getViewportCoverTransform(mediaCard).x,
+                y: () => getViewportCoverTransform(mediaCard).y,
+              },
+              {
+                autoAlpha: 1,
+                duration: 1.15,
+                ease: "power2.out",
+                immediateRender: true,
+                scale: 1,
+                x: 0,
+                y: 0,
+              },
+              "phase-1-media",
+            );
+          }
 
           if (mediaImage) {
             mobileTimeline.fromTo(
               mediaImage,
-              { scale: 1.06 },
               {
-                duration: 1,
-                ease: "power2.out",
-                scale: 1,
-                willChange: "transform",
+                scale: 1.06,
+                transformOrigin: "50% 50%",
               },
-              "mobile-media-in",
+              {
+                duration: 1.15,
+                ease: "power2.out",
+                immediateRender: true,
+                scale: 1,
+              },
+              "phase-1-media",
             );
           }
 
+          // Phase 2: The image caption settles in
+          mobileTimeline.addLabel("phase-2-caption", ">");
           if (mediaCopy) {
-            mobileTimeline.fromTo(
+            mobileTimeline.to(
               mediaCopy,
-              { opacity: 0, y: 12 },
               {
-                duration: 0.46,
-                opacity: 1,
-                willChange: "transform, opacity",
+                autoAlpha: 1,
+                duration: 0.5,
+                ease: "power2.out",
                 y: 0,
               },
-              "mobile-media-in+=0.1",
+              "phase-2-caption",
             );
           }
 
+          // Phase 3: Only afterward do the feature cards reveal
+          mobileTimeline.addLabel("phase-3-features", ">+=0.1");
           orderedFeatureItems.forEach((item, index) => {
             const label = `mobile-feature-${index}`;
-            const revealAt = 0.8 + index * 0.9;
+            const isFirst = index === 0;
 
-            mobileTimeline.addLabel(label, revealAt);
+            mobileTimeline.addLabel(
+              label,
+              isFirst ? "phase-3-features" : ">+=0.2",
+            );
 
             if (index > 0) {
               mobileTimeline.to(
                 orderedFeatureItems[index - 1],
                 {
-                  duration: 0.26,
+                  autoAlpha: 0,
+                  duration: 0.28,
                   ease: "power2.in",
-                  opacity: 0,
                   y: -16,
                 },
                 label,
@@ -240,11 +382,12 @@ export function useWhyUsMotion(
             mobileTimeline.to(
               item,
               {
-                duration: 0.46,
-                opacity: 1,
+                autoAlpha: 1,
+                duration: 0.48,
+                ease: "power3.out",
                 y: 0,
               },
-              `${label}+=${index === 0 ? 0 : 0.12}`,
+              isFirst ? label : `${label}+=0.12`,
             );
           });
         },

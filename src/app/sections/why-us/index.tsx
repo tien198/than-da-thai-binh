@@ -49,7 +49,7 @@ const rightFeatures = [
 
 export function WhyUs() {
   return (
-    <section id="gioi-thieu" className="bg-white px-5 py-12 sm:px-8 lg:px-20 lg:py-20" aria-labelledby="why-us-title">
+    <section id="gioi-thieu" className="relative isolate overflow-hidden bg-white px-5 py-12 sm:px-8 lg:px-20 lg:py-20" aria-labelledby="why-us-title">
       <WhyUsMotion>
         <div data-why-us-heading className="mx-auto max-w-[900px] text-center">
           <p className="text-[11px] font-bold tracking-[0.21em] text-ember-dark sm:text-xs sm:tracking-[0.25em]">TIÊU CHÍ HOẠT ĐỘNG &amp; NĂNG LỰC CUNG ỨNG</p>
@@ -82,14 +82,14 @@ export function WhyUs() {
             </div>
           </div>
 
-          <div data-why-us-media className="order-1 relative h-[clamp(170px,42svh,300px)] overflow-hidden rounded-lg border border-border bg-cream lg:col-start-2 lg:row-start-1 lg:h-[480px]">
+          <div data-why-us-media className="order-1 relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border bg-cream sm:aspect-[16/10] lg:col-start-2 lg:row-start-1 lg:h-[480px] lg:aspect-auto">
             <Image
               data-why-us-image
               src="/images/home/MEy4z.webp"
               alt="Bãi tập kết than sẵn sàng cung ứng"
               fill
               sizes="(max-width: 1023px) 100vw, (max-width: 1439px) calc((100vw - 224px) / 3), 380px"
-              className="object-cover"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-coal-dark/35" />
             <div data-why-us-media-copy className="absolute inset-x-5 bottom-5 rounded-md bg-coal-dark/90 px-4 py-3">
