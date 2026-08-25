@@ -56,13 +56,19 @@ export function WhyUs() {
           <p className="mt-2 text-[13px] leading-[1.55] text-text-muted sm:text-[15px]">Cam kết nguồn cung ổn định, chất lượng kiểm định và dịch vụ vận chuyển nhanh chóng cho mọi doanh nghiệp sản xuất.</p>
         </div>
 
-        <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-[380px_380px_380px] lg:items-center lg:justify-between lg:gap-8">
+        <div className="mt-10 grid gap-8 lg:mx-auto lg:mt-12 lg:max-w-[1204px] lg:grid-cols-3 lg:items-center">
           <div className="order-2 flex flex-col gap-8 lg:order-none">
             {leftFeatures.map((feature) => <FeatureItem key={feature.title} {...feature} />)}
           </div>
 
           <div className="order-1 relative h-[300px] overflow-hidden rounded-lg border border-border bg-cream lg:order-none lg:h-[480px]">
-            <Image src="/images/home/MEy4z.webp" alt="Bãi tập kết than sẵn sàng cung ứng" fill sizes="(max-width: 1023px) 100vw, 380px" className="object-cover" />
+            <Image
+              src="/images/home/MEy4z.webp"
+              alt="Bãi tập kết than sẵn sàng cung ứng"
+              fill
+              sizes="(max-width: 1023px) 100vw, (max-width: 1439px) calc((100vw - 224px) / 3), 380px"
+              className="object-cover"
+            />
             <div className="absolute inset-0 bg-coal-dark/35" />
             <div className="absolute inset-x-5 bottom-5 rounded-md bg-coal-dark/90 px-4 py-3">
               <p className="text-[11px] font-bold tracking-[0.15em] text-ember-gold">ĐƠN HÀNG TỪ 10 TẤN TRỞ LÊN</p>

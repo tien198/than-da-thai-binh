@@ -47,13 +47,14 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
 
   return (
     <header id="top" className="relative z-50 bg-white">
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between border-b border-border px-5 sm:px-8 lg:h-[92px] lg:px-20">
+      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 border-b border-border px-5 sm:px-8 lg:h-[92px] lg:px-20">
         <Brand />
 
         <div className="hidden items-center gap-3 text-[13px] font-light text-coal-dark lg:flex">
           <a
             href="tel:0908607391"
             className="flex items-center gap-1.5 hover:text-ember-dark"
+            aria-label="Gọi Than Đá Thái Bình"
           >
             <PhoneCall className="size-3.5" aria-hidden="true" />
             tel/zalo: 0908607391
@@ -67,14 +68,6 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
             thanthaibinh@gmail.com
           </a>
         </div>
-
-        <a
-          href="tel:0908607391"
-          aria-label="Gọi Than Đá Thái Bình"
-          className="grid size-9 place-items-center text-ember-dark lg:hidden"
-        >
-          <Phone className="size-[17px]" aria-hidden="true" />
-        </a>
       </div>
 
       <div className="h-[52px] bg-nav-bg lg:hidden">
@@ -84,7 +77,10 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
             aria-current="page"
             className="flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-white"
           >
-            <ActiveIcon className="size-[15px] text-brand-flame" aria-hidden="true" />
+            <ActiveIcon
+              className="size-[15px] text-brand-flame"
+              aria-hidden="true"
+            />
             {activeLabel}
           </Link>
 

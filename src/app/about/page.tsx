@@ -16,15 +16,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-cream font-body text-coal-dark">
-      <SiteHeader activePage="about" />
-      <main>
-        <AboutHero />
-        <CompanyStory />
-        <SupplyCapability />
-        <CompanyCommitment />
-      </main>
-      <SiteFooter />
-    </div>
+    <>
+      <AboutHero />
+      <CompanyStory />
+      <SupplyCapability />
+      <CompanyCommitment />
+    </>
   );
 }

@@ -46,8 +46,8 @@ export function AboutHero() {
           </p>
           <p className="mt-2 max-w-[560px] text-[13px] leading-[1.5] text-[#d9d2c8] lg:mt-5 lg:text-[15px] lg:leading-[1.65] lg:text-text-on-dark/80">
             Đối tác cung cấp than đá Quảng Ninh và than nhập khẩu cho nhà máy,
-            xí nghiệp khu vực phía Nam — ổn định nguồn hàng, rõ ràng chất
-            lượng, đúng tiến độ giao nhận.
+            xí nghiệp khu vực phía Nam — ổn định nguồn hàng, rõ ràng chất lượng,
+            đúng tiến độ giao nhận.
           </p>
         </div>
 
