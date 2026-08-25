@@ -19,18 +19,22 @@ const navigation = [
     href: "/#san-pham",
     dropdown: true,
   },
-  { key: "about", label: "GIỚI THIỆU", href: "/about" },
+  { key: "about", label: "GIỚI THIỆU", href: "/gioi-thieu" },
   {
     key: "capacity",
     label: "NĂNG LỰC CUNG ỨNG",
-    href: "/about#nang-luc",
+    href: "/gioi-thieu#nang-luc",
   },
   {
     key: "pricing",
     label: "BÁO GIÁ & VẬN CHUYỂN",
-    href: "/about#lien-he",
+    href: "/gioi-thieu#lien-he",
   },
-  { key: "contact", label: "LIÊN HỆ", href: "/about#lien-he" },
+  {
+    key: "contact",
+    label: "LIÊN HỆ",
+    href: "/gioi-thieu#lien-he",
+  },
 ];
 
 type SiteHeaderProps = {
@@ -76,7 +80,7 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
       <div className="h-[52px] bg-nav-bg lg:hidden">
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-5 sm:px-8">
           <Link
-            href={activePage === "about" ? "/about" : "/"}
+            href={activePage === "about" ? "/gioi-thieu" : "/"}
             aria-current="page"
             className="flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-white"
           >
@@ -121,7 +125,7 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
                 );
               })}
               <Link
-                href="/about#lien-he"
+                href="/gioi-thieu#lien-he"
                 className="mt-3 flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-sm font-bold text-coal-black"
               >
                 <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
@@ -167,7 +171,7 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
             })}
           </nav>
           <Link
-            href="/about#lien-he"
+            href="/gioi-thieu#lien-he"
             className="flex h-10 items-center gap-2 rounded-sm bg-ember-gold px-5 text-[13px] font-bold tracking-wide text-coal-black transition-colors hover:bg-ember-light"
           >
             <FileText className="size-3.5" aria-hidden="true" /> Nhận báo giá
