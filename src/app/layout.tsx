@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist_Mono, Noto_Sans } from "next/font/google";
+import { Phone, PhoneCall } from "lucide-react";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -48,6 +49,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <SiteFooter />
         </main>
+        <a
+          href="tel:0908607391"
+          className="fixed right-5 bottom-5 z-50 isolate grid size-14 place-items-center rounded-full bg-brand-flame text-white shadow-[0_8px_28px_rgba(13,13,13,0.28)] transition-[transform,background-color,box-shadow] duration-300 hover:scale-105 hover:bg-ember-dark hover:shadow-[0_10px_32px_rgba(13,13,13,0.34)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-flame sm:right-8 sm:bottom-8 lg:size-16"
+          aria-label="Gọi Than Đá Thái Bình: 0908 607 391"
+        >
+          <span
+            className="floating-phone-pulse absolute inset-0 -z-10 rounded-full bg-brand-flame/40"
+            aria-hidden="true"
+          />
+          <span className="grid -scale-x-100 place-items-center">
+            <Phone
+              className="floating-phone-shake size-6 lg:size-7"
+              aria-hidden="true"
+            />
+          </span>
+        </a>
       </body>
     </html>
   );
