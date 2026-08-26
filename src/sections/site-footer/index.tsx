@@ -1,6 +1,7 @@
 import { FileText, Globe, Mail, MapPin, Phone } from "lucide-react";
 
 import { FooterBrand } from "./comps/footer-brand";
+import { BrandLogo } from "@/components/brand-logo";
 
 const contactDetails = [
   {
@@ -71,11 +72,11 @@ export function SiteFooter() {
                       aria-hidden="true"
                     />
                     <p className="text-coal-dark">
-                      <strong className="block text-[9px] font-bold leading-[1.2] text-ember-dark lg:inline lg:text-sm lg:leading-normal">
+                      <strong className="block text-[9px] font-light leading-[1.2] text-ember-dark lg:inline lg:text-sm lg:leading-normal">
                         {label}
                         <span className="hidden lg:inline">:</span>
                       </strong>{" "}
-                      <span className="block text-xs leading-[1.4] lg:inline lg:text-sm lg:leading-normal">
+                      <span className="block text-sm leading-[1.4] lg:inline lg:text-base lg:leading-normal">
                         {contactValue}
                       </span>
                     </p>
@@ -105,9 +106,9 @@ export function SiteFooter() {
         </aside>
       </div>
 
-      <div className="border-t border-border bg-border">
+      <div className="border-t border-border bg-border py-14">
         <div className="mx-auto flex h-[104px] max-w-[1440px] flex-col items-center px-5 pt-[18px] sm:px-8 lg:h-16 lg:flex-row lg:justify-between lg:px-20 lg:pt-0">
-          <FooterBrand />
+          <BrandLogo />
           <p className="mt-2 text-[10px] font-semibold text-text-muted lg:mt-0 lg:text-xs lg:tracking-wide">
             Power of TexCra
           </p>

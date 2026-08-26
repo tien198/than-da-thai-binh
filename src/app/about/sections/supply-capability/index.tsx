@@ -1,4 +1,5 @@
 import { CapabilityStep } from "./comps/capability-step";
+import { SupplyCapabilityMotion } from "./comps/supply-capability-motion";
 
 const capabilitySteps = [
   {
@@ -34,10 +35,10 @@ export function SupplyCapability() {
       className="bg-coal-dark text-white"
       aria-labelledby="supply-capability-title"
     >
-      <div className="mx-auto max-w-[1440px] px-5 py-[52px] lg:h-[640px] lg:px-20 lg:py-[72px]">
+      <SupplyCapabilityMotion>
         <div className="lg:flex lg:items-end lg:justify-between">
-          <div className="lg:w-[720px]">
-            <div className="flex items-center gap-3">
+          <div className="lg:w-[720px]" data-supply-capability-heading>
+            <div className="flex items-center gap-3 opacity-0 motion-reduce:opacity-100">
               <span className="font-display text-[11px] font-bold text-ember-light lg:text-xs">
                 02
               </span>
@@ -48,25 +49,35 @@ export function SupplyCapability() {
             </div>
             <h2
               id="supply-capability-title"
-              className="mt-6 font-display text-[31px] font-semibold leading-[1.04] tracking-[-0.02em] lg:mt-3 lg:text-[44px] lg:leading-[1.08]"
+              className="mt-6 font-display text-[31px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-3 lg:text-[44px] lg:leading-[1.08]"
             >
               Mỗi lô than đi qua
               <br />
               ba lớp kiểm soát.
             </h2>
           </div>
-          <p className="mt-4 max-w-[390px] text-xs leading-[1.55] text-[#c9c1b6] lg:mt-0 lg:text-sm lg:leading-[1.7] lg:text-text-on-dark/65">
+          <p
+            className="mt-4 max-w-[390px] text-xs leading-[1.55] text-[#c9c1b6] opacity-0 motion-reduce:opacity-100 lg:mt-0 lg:text-sm lg:leading-[1.7] lg:text-text-on-dark/65"
+            data-supply-capability-intro
+          >
             Từ lựa chọn nguồn hàng, xác nhận chỉ tiêu đến điều phối giao nhận —
             cùng một đầu mối chịu trách nhiệm xuyên suốt.
           </p>
         </div>
 
-        <div className="mt-5 grid lg:mt-[50px] lg:h-[321px] lg:grid-cols-3">
-          {capabilitySteps.map((step) => (
-            <CapabilityStep key={step.index} {...step} />
+        <div
+          className="mt-5 grid lg:mt-[50px] lg:h-[321px] lg:grid-cols-3"
+          data-supply-capability-list
+        >
+          {capabilitySteps.map((step, index) => (
+            <CapabilityStep
+              key={step.index}
+              {...step}
+              revealOrder={index}
+            />
           ))}
         </div>
-      </div>
+      </SupplyCapabilityMotion>
     </section>
   );
 }

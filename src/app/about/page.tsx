@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 
-import { SiteFooter } from "@/app/sections/site-footer";
-import { SiteHeader } from "@/app/sections/site-header";
-
 import { AboutHero } from "./sections/about-hero";
 import { CompanyCommitment } from "./sections/company-commitment";
 import { CompanyStory } from "./sections/company-story";

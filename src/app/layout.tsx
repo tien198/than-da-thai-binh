@@ -3,8 +3,8 @@ import { Bricolage_Grotesque, Geist_Mono, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-import { SiteFooter } from "@/app/sections/site-footer";
-import { SiteHeader } from "@/app/sections/site-header";
+import { SiteFooter } from "@/sections/site-footer";
+import { SiteHeader } from "@/sections/site-header";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--next-font-bricolage-grotesque",

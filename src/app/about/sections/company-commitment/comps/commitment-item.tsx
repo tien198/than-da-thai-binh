@@ -3,16 +3,22 @@ import type { LucideIcon } from "lucide-react";
 type CommitmentItemProps = {
   description: string;
   icon: LucideIcon;
+  revealOrder: number;
   title: string;
 };
 
 export function CommitmentItem({
   description,
   icon: Icon,
+  revealOrder,
   title,
 }: CommitmentItemProps) {
   return (
-    <article className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-3 border-t border-cream-dark py-4 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-x-6 lg:py-[17px]">
+    <article
+      className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-3 border-t border-cream-dark py-4 opacity-0 motion-reduce:opacity-100 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-x-6 lg:py-[17px]"
+      data-company-commitment-item
+      data-reveal-order={revealOrder}
+    >
       <span className="grid size-[34px] place-items-center bg-white lg:hidden">
         <Icon className="size-4 text-ember-dark" aria-hidden="true" />
       </span>

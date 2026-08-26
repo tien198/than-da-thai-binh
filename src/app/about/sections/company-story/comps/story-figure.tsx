@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export function StoryFigure() {
   return (
-    <figure className="overflow-hidden rounded-[2px] bg-coal-dark text-text-on-dark lg:rounded-none">
+    <figure
+      className="overflow-hidden rounded-[2px] bg-coal-dark text-text-on-dark opacity-0 motion-reduce:opacity-100 lg:rounded-none"
+      data-company-story-figure
+    >
       <div className="relative h-[238px] lg:h-[476px]">
         <Image
           src="/images/about/rEdTA.webp"
@@ -10,10 +13,17 @@ export function StoryFigure() {
           fill
           sizes="(max-width: 1023px) calc(100vw - 40px), 680px"
           className="object-cover"
+          data-company-story-image
         />
       </div>
-      <figcaption className="flex h-[76px] flex-col justify-center px-4 lg:h-20 lg:flex-row lg:items-center lg:justify-between lg:px-6">
-        <span>
+      <figcaption
+        className="flex h-[76px] flex-col justify-center px-4 lg:h-20 lg:flex-row lg:items-center lg:justify-between lg:px-6"
+        data-company-story-caption
+      >
+        <span
+          className="opacity-0 motion-reduce:opacity-100"
+          data-company-story-caption-part
+        >
           <span className="block text-[8px] font-bold leading-[1.1] tracking-[0.14em] text-ember-light lg:text-[9px] lg:tracking-[0.2em]">
             TUYẾN CUNG ỨNG
           </span>
@@ -25,7 +35,10 @@ export function StoryFigure() {
             TD•TB / 1995
           </span>
         </span>
-        <span className="hidden font-display text-[13px] font-semibold tracking-[0.15em] text-text-on-dark/55 lg:block">
+        <span
+          className="hidden font-display text-[13px] font-semibold tracking-[0.15em] text-text-on-dark/55 opacity-0 motion-reduce:opacity-100 lg:block"
+          data-company-story-caption-part
+        >
           TD•TB / 1995
         </span>
       </figcaption>
