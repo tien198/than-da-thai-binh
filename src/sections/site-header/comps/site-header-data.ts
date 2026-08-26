@@ -1,6 +1,6 @@
-export type ActivePage = "about" | "home";
-
 export type MobileMenuState = "closed" | "closing" | "open";
+
+export const aboutRouteAliases = ["/about"] as const;
 
 export const navigationItems = [
   {

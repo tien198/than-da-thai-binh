@@ -1,57 +1,59 @@
 import { ChevronDown, FileText, Home } from "lucide-react";
-import Link from "next/link";
 
-import { type ActivePage, navigationItems } from "./site-header-data";
+import { cn } from "@/lib/utils";
 
-type DesktopNavProps = {
-  activePage: ActivePage;
-};
+import { NavLink } from "./nav-link";
+import { aboutRouteAliases, navigationItems } from "./site-header-data";
 
-export function DesktopNav({ activePage }: DesktopNavProps) {
+const navigationLinkClassName = ({ isActive }: { isActive: boolean }) =>
+  cn(
+    "flex items-center gap-1.5 text-[13px] font-bold tracking-[0.06em] transition-colors hover:text-ember-light",
+    isActive ? "text-ember-gold" : "text-text-on-dark",
+  );
+
+export function DesktopNav() {
   return (
     <div className="hidden h-14 bg-nav-bg lg:block">
       <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-20">
         <nav className="flex items-center gap-7" aria-label="Điều hướng chính">
-          <Link
+          <NavLink
             href="/"
-            aria-current={activePage === "home" ? "page" : undefined}
-            className={`flex items-center gap-1.5 text-[13px] font-bold tracking-[0.06em] transition-colors hover:text-ember-light ${
-              activePage === "home" ? "text-ember-gold" : "text-text-on-dark"
-            }`}
+            end
+            className={navigationLinkClassName}
           >
             <Home className="size-4" aria-hidden="true" /> TRANG CHỦ
-          </Link>
+          </NavLink>
 
-          {navigationItems.map((item) => {
-            const isActive = item.key === activePage;
-
-            return (
-              <Link
-                key={item.key}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`flex items-center gap-1.5 text-[13px] font-bold tracking-[0.06em] transition-colors hover:text-ember-light ${
-                  isActive ? "text-ember-gold" : "text-text-on-dark"
-                }`}
-              >
-                {item.label}
-                {"dropdown" in item && item.dropdown ? (
-                  <ChevronDown
-                    className="size-3.5 text-cream-dark"
-                    aria-hidden="true"
-                  />
-                ) : null}
-              </Link>
-            );
-          })}
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.key}
+              href={item.href}
+              activePathnames={
+                item.href.startsWith("/gioi-thieu")
+                  ? aboutRouteAliases
+                  : undefined
+              }
+              end
+              className={navigationLinkClassName}
+            >
+              {item.label}
+              {"dropdown" in item && item.dropdown ? (
+                <ChevronDown
+                  className="size-3.5 text-cream-dark"
+                  aria-hidden="true"
+                />
+              ) : null}
+            </NavLink>
+          ))}
         </nav>
 
-        <Link
+        <NavLink
           href="/gioi-thieu#lien-he"
+          activePathnames={aboutRouteAliases}
           className="flex h-10 items-center gap-2 rounded-sm bg-ember-gold px-5 text-[13px] font-bold tracking-wide text-coal-black transition-colors hover:bg-ember-light"
         >
           <FileText className="size-3.5" aria-hidden="true" /> Nhận báo giá
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

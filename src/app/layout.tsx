@@ -27,7 +27,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Công ty than Thái Bình",
-  description: "Cung ứng than miền Nam",
+  description:
+    " cung cấp than đá Quảng Ninh chất lượng cao khu vực phía Nam. Phục vụ các nhà máy, xí nghiệp và doanh nghiệp sản xuất — đáp ứng đơn hàng từ 10 tấn trở lên.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

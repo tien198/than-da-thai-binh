@@ -12,16 +12,9 @@ import {
 import { DesktopNav } from "./comps/desktop-nav";
 import { HeaderTopBar } from "./comps/header-top-bar";
 import { MobileNav } from "./comps/mobile-nav";
-import type {
-  ActivePage,
-  MobileMenuState,
-} from "./comps/site-header-data";
+import type { MobileMenuState } from "./comps/site-header-data";
 
-type SiteHeaderProps = {
-  activePage?: ActivePage;
-};
-
-export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
+export function SiteHeader() {
   const router = useRouter();
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [menuState, setMenuState] = useState<MobileMenuState>("closed");
@@ -112,14 +105,13 @@ export function SiteHeader({ activePage = "home" }: SiteHeaderProps) {
     <header id="top" className="relative z-50 bg-white">
       <HeaderTopBar />
       <MobileNav
-        activePage={activePage}
         isMenuVisible={isMenuVisible}
         menuState={menuState}
         onClose={closeMenu}
         onNavigate={handleNavigation}
         onOpen={() => setMenuState("open")}
       />
-      <DesktopNav activePage={activePage} />
+      <DesktopNav />
     </header>
   );
 }

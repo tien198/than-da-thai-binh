@@ -1,17 +1,17 @@
 import { FileText, Home, X } from "lucide-react";
-import Link from "next/link";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 import { BrandLogo } from "@/components/brand-logo";
+import { cn } from "@/lib/utils";
 
+import { NavLink } from "./nav-link";
 import {
-  type ActivePage,
+  aboutRouteAliases,
   type MobileMenuState,
   navigationItems,
 } from "./site-header-data";
 
 type MobileNavDialogProps = {
-  activePage: ActivePage;
   menuState: MobileMenuState;
   onClose: () => void;
   onNavigate: (
@@ -21,7 +21,6 @@ type MobileNavDialogProps = {
 };
 
 export function MobileNavDialog({
-  activePage,
   menuState,
   onClose,
   onNavigate,
@@ -54,42 +53,50 @@ export function MobileNavDialog({
         className="flex min-h-[calc(100dvh-72px)] flex-col px-5 py-6 sm:px-8"
         aria-label="Điều hướng di động"
       >
-        <Link
+        <NavLink
           href="/"
+          end
           onClick={(event) => onNavigate(event, "/")}
-          aria-current={activePage === "home" ? "page" : undefined}
-          className={`flex items-center gap-2 border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider ${
-            activePage === "home" ? "text-ember-gold" : "text-text-on-dark"
-          }`}
+          className={({ isActive }) =>
+            cn(
+              "flex items-center gap-2 border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider",
+              isActive ? "text-ember-gold" : "text-text-on-dark",
+            )
+          }
         >
           <Home className="size-4" aria-hidden="true" /> TRANG CHỦ
-        </Link>
+        </NavLink>
 
-        {navigationItems.map((item) => {
-          const isActive = item.key === activePage;
+        {navigationItems.map((item) => (
+          <NavLink
+            key={item.key}
+            href={item.href}
+            activePathnames={
+              item.href.startsWith("/gioi-thieu")
+                ? aboutRouteAliases
+                : undefined
+            }
+            end
+            onClick={(event) => onNavigate(event, item.href)}
+            className={({ isActive }) =>
+              cn(
+                "block border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider last:border-0",
+                isActive ? "text-ember-gold" : "text-text-on-dark",
+              )
+            }
+          >
+            {item.label}
+          </NavLink>
+        ))}
 
-          return (
-            <Link
-              key={item.key}
-              href={item.href}
-              onClick={(event) => onNavigate(event, item.href)}
-              aria-current={isActive ? "page" : undefined}
-              className={`block border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider last:border-0 ${
-                isActive ? "text-ember-gold" : "text-text-on-dark"
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-
-        <Link
+        <NavLink
           href="/gioi-thieu#lien-he"
+          activePathnames={aboutRouteAliases}
           onClick={(event) => onNavigate(event, "/gioi-thieu#lien-he")}
           className="mt-auto flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-sm font-bold text-coal-black"
         >
           <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );

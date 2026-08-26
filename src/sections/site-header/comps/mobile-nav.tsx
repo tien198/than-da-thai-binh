@@ -1,12 +1,15 @@
 import { Building2, Home, Menu } from "lucide-react";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { MouseEvent as ReactMouseEvent } from "react";
 
 import { MobileNavDialog } from "./mobile-nav-dialog";
-import type { ActivePage, MobileMenuState } from "./site-header-data";
+import { NavLink } from "./nav-link";
+import {
+  aboutRouteAliases,
+  type MobileMenuState,
+} from "./site-header-data";
 
 type MobileNavProps = {
-  activePage: ActivePage;
   isMenuVisible: boolean;
   menuState: MobileMenuState;
   onClose: (destination?: string) => void;
@@ -18,22 +21,24 @@ type MobileNavProps = {
 };
 
 export function MobileNav({
-  activePage,
   isMenuVisible,
   menuState,
   onClose,
   onNavigate,
   onOpen,
 }: MobileNavProps) {
-  const ActiveIcon = activePage === "about" ? Building2 : Home;
-  const activeLabel = activePage === "about" ? "GIỚI THIỆU" : "TRANG CHỦ";
+  const pathname = usePathname();
+  const isAboutPage = pathname === "/about" || pathname === "/gioi-thieu";
+  const ActiveIcon = isAboutPage ? Building2 : Home;
+  const activeLabel = isAboutPage ? "GIỚI THIỆU" : "TRANG CHỦ";
 
   return (
     <div className="h-[52px] bg-nav-bg lg:hidden">
       <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-5 sm:px-8">
-        <Link
-          href={activePage === "about" ? "/gioi-thieu" : "/"}
-          aria-current="page"
+        <NavLink
+          href={isAboutPage ? "/gioi-thieu" : "/"}
+          activePathnames={isAboutPage ? aboutRouteAliases : undefined}
+          end
           className="flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-white"
         >
           <ActiveIcon
@@ -41,7 +46,7 @@ export function MobileNav({
             aria-hidden="true"
           />
           {activeLabel}
-        </Link>
+        </NavLink>
 
         <button
           type="button"
@@ -59,7 +64,6 @@ export function MobileNav({
 
         {isMenuVisible ? (
           <MobileNavDialog
-            activePage={activePage}
             menuState={menuState}
             onClose={onClose}
             onNavigate={onNavigate}
