@@ -1,0 +1,10 @@
+'use client'
+
+export { Carousel } from './comps/carousel'
+export { CarouselContent } from './comps/carousel-content'
+export { CarouselDots } from './comps/carousel-dots'
+export { CarouselItem } from './comps/carousel-item'
+export { CarouselNext } from './comps/carousel-next'
+export { CarouselPrevious } from './comps/carousel-previous'
+export { useCarousel } from './comps/carousel-context'
+export type { CarouselApi, CarouselOptions } from './comps/types'

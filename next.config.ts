@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/gioi-thieu",
         permanent: true,
       },
+      {
+        source: "/products",
+        destination: "/san-pham",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
@@ -15,6 +20,10 @@ const nextConfig: NextConfig = {
       {
         source: "/gioi-thieu",
         destination: "/about",
+      },
+      {
+        source: "/san-pham",
+        destination: "/products",
       },
     ];
   },

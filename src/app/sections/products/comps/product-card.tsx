@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+
+import { ProductCardActions } from "./product-card-actions";
 
 type ProductCardProps = {
   description: string;
@@ -9,17 +10,6 @@ type ProductCardProps = {
   tag: string;
   title: string;
 };
-
-function QuoteLink() {
-  return (
-    <a
-      href="#lien-he"
-      className="inline-flex items-center gap-1.5 text-[13px] font-bold text-ember-gold"
-    >
-      Nhận báo giá <ArrowUpRight className="size-3.5" aria-hidden="true" />
-    </a>
-  );
-}
 
 export function ProductCard({
   description,
@@ -58,7 +48,7 @@ export function ProductCard({
             {description}
           </p>
           <div className="mt-4">
-            <QuoteLink />
+            <ProductCardActions featured />
           </div>
         </div>
       </article>
@@ -91,7 +81,7 @@ export function ProductCard({
           {description}
         </p>
         <div className="mt-auto pt-2">
-          <QuoteLink />
+          <ProductCardActions />
         </div>
       </div>
     </article>

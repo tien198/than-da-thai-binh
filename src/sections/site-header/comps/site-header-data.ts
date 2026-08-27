@@ -6,7 +6,7 @@ export const navigationItems = [
   {
     key: "products",
     label: "SẢN PHẨM THAN",
-    href: "/#san-pham",
+    href: "/san-pham",
     dropdown: true,
   },
   { key: "about", label: "GIỚI THIỆU", href: "/gioi-thieu" },
