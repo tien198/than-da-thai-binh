@@ -1,9 +1,13 @@
 import { ArrowRight, FileText } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative isolate min-h-[560px] overflow-hidden bg-cream lg:h-[620px]" aria-labelledby="hero-title">
+    <section
+      className="relative isolate min-h-[560px] overflow-hidden bg-cream lg:h-[620px]"
+      aria-labelledby="hero-title"
+    >
       <Image
         src="/images/home/L6UQEa.webp"
         alt="Bãi than và hệ thống băng tải công nghiệp"
@@ -22,20 +26,35 @@ export function Hero() {
               NHÀ CUNG CẤP THAN ĐÁ UY TÍN
             </p>
           </div>
-          <h1 id="hero-title" className="font-alumni-sans text-[42px] font-bold leading-[1.04] tracking-[-0.03em] sm:text-5xl lg:text-[56px]">
+          <h1
+            id="hero-title"
+            className="font-alumni-sans text-[42px] font-bold leading-[1.04] tracking-[-0.03em] sm:text-5xl lg:text-[56px]"
+          >
             <span className="block text-coal-dark">THAN QUẢNG NINH</span>
-            <span className="font-alumni-sans text-primary block">CHẤT LƯỢNG CAO</span>
+            <span className="font-alumni-sans text-primary block">
+              CHẤT LƯỢNG CAO
+            </span>
           </h1>
           <p className="mt-5 max-w-[600px] text-[14px] leading-[1.65] text-coal-dark sm:text-base">
-            <strong className="font-bold">CÔNG TY THAN ĐÁ THÁI BÌNH</strong> chuyên cung cấp than đá Quảng Ninh chất lượng cao khu vực phía Nam. Phục vụ các nhà máy, xí nghiệp và doanh nghiệp sản xuất — đáp ứng đơn hàng từ 10 tấn trở lên.
+            <strong className="font-bold">CÔNG TY THAN ĐÁ THÁI BÌNH</strong>{" "}
+            chuyên cung cấp than đá Quảng Ninh chất lượng cao khu vực phía Nam.
+            Phục vụ các nhà máy, xí nghiệp và doanh nghiệp sản xuất — đáp ứng
+            đơn hàng từ 10 tấn trở lên.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <a href="#lien-he" className="flex h-[52px] items-center justify-center gap-2 rounded-sm bg-ember-gold px-9 text-[15px] font-bold text-coal-black transition-colors hover:bg-ember-light">
-              <FileText className="size-4" aria-hidden="true" /> Nhận báo giá ngay
+            <a
+              href="#lien-he"
+              className="flex h-[52px] items-center justify-center gap-2 rounded-sm bg-ember-gold px-9 text-[15px] font-bold text-coal-black transition-colors hover:bg-ember-light"
+            >
+              <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
+              ngay
             </a>
-            <a href="#san-pham" className="flex h-12 items-center justify-center gap-2 rounded-sm border-[1.5px] border-coal-dark bg-white px-8 text-[15px] font-semibold text-coal-dark transition-colors hover:bg-cream-mid">
+            <Link
+              href="/san-pham"
+              className="flex h-12 items-center justify-center gap-2 rounded-sm border-[1.5px] border-coal-dark bg-white px-8 text-[15px] font-semibold text-coal-dark transition-colors hover:bg-cream-mid"
+            >
               Xem sản phẩm <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
