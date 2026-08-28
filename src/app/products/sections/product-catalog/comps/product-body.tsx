@@ -15,7 +15,7 @@ export function ProductBody({ product }: ProductBodyProps) {
 
   return (
     <div className="flex w-full min-w-0 flex-col items-start gap-4">
-      <p className="text-[13px] leading-5 text-text-muted lg:text-sm lg:leading-[22px]">
+      <p className="text-[15px] leading-5 text-text-muted lg:text-base lg:leading-[22px]">
         {product.description}
       </p>
       <dl className="grid w-full grid-cols-3 border-y border-border">
@@ -24,10 +24,10 @@ export function ProductBody({ product }: ProductBodyProps) {
             key={label}
             className={`min-w-0 py-3.5 ${index > 0 ? "border-l border-border pl-3 lg:pl-5" : "pr-3 lg:pr-5"}`}
           >
-            <dt className="text-[8px] font-bold tracking-[0.1em] text-text-muted lg:text-[9px]">
+            <dt className="text-[10px] font-bold tracking-[0.1em] text-text-muted lg:text-[11px]">
               {label}
             </dt>
-            <dd className="mt-1 text-[11px] font-semibold leading-4 text-coal-dark lg:text-xs">
+            <dd className="mt-1 text-[13px] font-semibold leading-4 text-coal-dark lg:text-sm">
               {value}
             </dd>
           </div>
@@ -35,7 +35,7 @@ export function ProductBody({ product }: ProductBodyProps) {
       </dl>
       <a
         href="#lien-he"
-        className="group inline-flex items-center gap-2 rounded-sm bg-coal-dark px-[18px] py-3 text-[10px] font-bold tracking-[0.07em] text-white transition-colors hover:bg-brand-flame"
+        className="group inline-flex items-center gap-2 rounded-sm bg-coal-dark px-[18px] py-3 text-[12px] font-bold tracking-[0.07em] text-white transition-colors hover:bg-brand-flame"
       >
         NHẬN THÔNG SỐ LÔ &amp; BÁO GIÁ
         <ArrowUpRight

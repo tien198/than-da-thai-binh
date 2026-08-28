@@ -68,7 +68,7 @@ function MobileProjectGallery() {
 
   return (
     <div className="flex flex-col gap-2.5" data-project-gallery-mobile>
-      <p className="text-[9px] font-bold tracking-[0.13em] text-ember-gold">
+      <p className="text-[11px] font-bold tracking-[0.13em] text-ember-gold">
         HÌNH ẢNH THỰC TẾ
       </p>
 
@@ -105,12 +105,12 @@ function MobileProjectGallery() {
                     />
                   </div>
                   <div className="flex flex-col gap-2 px-6 pt-[18px] pb-6">
-                    <h3 className="font-display text-lg font-bold leading-[21px] text-brand-flame">
+                    <h3 className="font-display text-xl font-bold leading-[21px] text-brand-flame">
                       {item.title}
                     </h3>
                     <p
                       className={cn(
-                        "text-xs leading-[17px] transition-colors duration-300",
+                        "text-sm leading-[17px] transition-colors duration-300",
                         isSelected ? "text-text-muted" : "text-cream",
                       )}
                     >
@@ -129,7 +129,7 @@ function MobileProjectGallery() {
         />
       </Carousel>
 
-      <div className="flex items-center gap-[7px] text-[10px] text-[#7a7168]">
+      <div className="flex items-center gap-[7px] text-[12px] text-[#7a7168]">
         <MoveHorizontal
           className="size-[13px] text-ember-gold"
           aria-hidden="true"
@@ -143,7 +143,7 @@ function MobileProjectGallery() {
 function DesktopProjectGallery() {
   return (
     <div className="lg:mt-9">
-      <div className="mb-3 flex items-center gap-3 text-[10px] font-bold tracking-[0.12em]">
+      <div className="mb-3 flex items-center gap-3 text-[12px] font-bold tracking-[0.12em]">
         <span className="text-brand-flame">THAN QUẢNG NINH</span>
         <span className="h-px w-8 bg-ember-gold" aria-hidden="true" />
         <span className="text-text-muted">04 ẢNH</span>
@@ -161,7 +161,7 @@ function DesktopProjectGallery() {
               sizes="308px"
               className="object-cover"
             />
-            <span className="absolute right-2 bottom-2 grid size-6 place-items-center bg-coal-black/80 font-display text-[11px] font-bold text-brand-flame">
+            <span className="absolute right-2 bottom-2 grid size-6 place-items-center bg-coal-black/80 font-display text-[13px] font-bold text-brand-flame">
               0{index + 2}
             </span>
           </div>

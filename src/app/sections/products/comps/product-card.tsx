@@ -36,15 +36,15 @@ export function ProductCard({
             className="object-cover"
           />
           <div className="absolute inset-0 bg-coal-dark/25 lg:bg-[linear-gradient(180deg,rgba(13,13,13,0.05),rgba(13,13,13,0.9))]" />
-          <span className="absolute left-4 top-4 rounded-sm bg-ember-gold px-2.5 py-1 text-[11px] font-bold text-coal-dark lg:left-[30px] lg:top-[30px]">
+          <span className="absolute left-4 top-4 rounded-sm bg-ember-gold px-2.5 py-1 text-[13px] font-bold text-coal-dark lg:left-[30px] lg:top-[30px]">
             {tag}
           </span>
         </div>
         <div className="relative p-5 lg:absolute lg:inset-x-[30px] lg:bottom-[30px] lg:p-0">
-          <h3 className="font-heading text-2xl font-semibold text-coal-dark lg:text-[30px] lg:text-white">
+          <h3 className="font-heading text-3xl font-semibold text-coal-dark lg:text-[32px] lg:text-white">
             {title}
           </h3>
-          <p className="mt-2 text-[13px] leading-[1.55] text-text-muted lg:text-sm lg:text-white/80">
+          <p className="mt-2 text-[15px] leading-[1.55] text-text-muted lg:text-base lg:text-white/80">
             {description}
           </p>
           <div className="mt-4">
@@ -71,13 +71,13 @@ export function ProductCard({
         />
       </div>
       <div className="flex min-w-0 flex-1 flex-col p-4 lg:p-5">
-        <span className="w-fit rounded-sm bg-cream-mid px-2 py-1 text-[10px] font-semibold text-ember-dark lg:text-[11px]">
+        <span className="w-fit rounded-sm bg-cream-mid px-2 py-1 text-[12px] font-semibold text-ember-dark lg:text-[13px]">
           {tag}
         </span>
-        <h3 className="mt-2 font-heading text-base font-semibold text-coal-dark lg:text-[17px]">
+        <h3 className="mt-2 font-heading text-lg font-semibold text-coal-dark lg:text-[19px]">
           {title}
         </h3>
-        <p className="mt-1.5 line-clamp-3 text-[11px] leading-[1.45] text-text-muted lg:mt-2 lg:text-xs">
+        <p className="mt-1.5 line-clamp-3 text-[13px] leading-[1.45] text-text-muted lg:mt-2 lg:text-sm">
           {description}
         </p>
         <div className="mt-auto pt-2">

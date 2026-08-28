@@ -14,18 +14,18 @@ export function CompanyStory() {
             data-company-story-reveal
             data-reveal-order="0"
           >
-            <span className="font-display text-[11px] font-bold text-ember-dark lg:text-xs">
+            <span className="font-display text-[13px] font-bold text-ember-dark lg:text-sm">
               01
             </span>
             <span className="h-px w-7 bg-ember-dark lg:w-10" />
-            <p className="text-[9px] font-bold tracking-[0.13em] text-ember-dark lg:text-[11px] lg:tracking-[0.24em]">
+            <p className="text-[11px] font-bold tracking-[0.13em] text-ember-dark lg:text-[13px] lg:tracking-[0.24em]">
               CÂU CHUYỆN DOANH NGHIỆP
             </p>
           </div>
 
           <h2
             id="company-story-title"
-            className="mt-[22px] font-display text-[31px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-[46px] lg:leading-[1.08]"
+            className="mt-[22px] font-display text-[33px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-[48px] lg:leading-[1.08]"
             data-company-story-reveal
             data-reveal-order="1"
           >
@@ -34,7 +34,7 @@ export function CompanyStory() {
             đến ngọn lửa sản xuất.
           </h2>
           <p
-            className="mt-4 text-[13px] font-semibold leading-[1.5] opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-[17px] lg:leading-[1.6]"
+            className="mt-4 text-[15px] font-semibold leading-[1.5] opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-[19px] lg:leading-[1.6]"
             data-company-story-reveal
             data-reveal-order="2"
           >
@@ -43,7 +43,7 @@ export function CompanyStory() {
             điểm cần đốt.
           </p>
           <p
-            className="mt-4 text-xs leading-[1.55] text-text-muted opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-sm lg:leading-[1.75]"
+            className="mt-4 text-sm leading-[1.55] text-text-muted opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:text-base lg:leading-[1.75]"
             data-company-story-reveal
             data-reveal-order="3"
           >
@@ -54,7 +54,7 @@ export function CompanyStory() {
             lên.
           </p>
           <blockquote
-            className="mt-4 border-l-2 border-ember-dark pl-3 font-display text-sm text-ember-dark opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:pl-5 lg:text-[21px] lg:font-medium"
+            className="mt-4 border-l-2 border-ember-dark pl-3 font-display text-base text-ember-dark opacity-0 motion-reduce:opacity-100 lg:mt-[22px] lg:pl-5 lg:text-[23px] lg:font-medium"
             data-company-story-reveal
             data-reveal-order="4"
           >

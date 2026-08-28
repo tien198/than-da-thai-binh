@@ -39,17 +39,17 @@ export function SupplyCapability() {
         <div className="lg:flex lg:items-end lg:justify-between">
           <div className="lg:w-[720px]" data-supply-capability-heading>
             <div className="flex items-center gap-3 opacity-0 motion-reduce:opacity-100">
-              <span className="font-display text-[11px] font-bold text-ember-light lg:text-xs">
+              <span className="font-display text-[13px] font-bold text-ember-light lg:text-sm">
                 02
               </span>
               <span className="h-px w-7 bg-ember-light lg:w-10" />
-              <p className="text-[9px] font-bold tracking-[0.13em] text-ember-light lg:text-[11px] lg:tracking-[0.24em]">
+              <p className="text-[11px] font-bold tracking-[0.13em] text-ember-light lg:text-[13px] lg:tracking-[0.24em]">
                 NĂNG LỰC CUNG ỨNG
               </p>
             </div>
             <h2
               id="supply-capability-title"
-              className="mt-6 font-display text-[31px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-3 lg:text-[44px] lg:leading-[1.08]"
+              className="mt-6 font-display text-[33px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-3 lg:text-[46px] lg:leading-[1.08]"
             >
               Mỗi lô than đi qua
               <br />
@@ -57,7 +57,7 @@ export function SupplyCapability() {
             </h2>
           </div>
           <p
-            className="mt-4 max-w-[390px] text-xs leading-[1.55] text-[#c9c1b6] opacity-0 motion-reduce:opacity-100 lg:mt-0 lg:text-sm lg:leading-[1.7] lg:text-text-on-dark/65"
+            className="mt-4 max-w-[390px] text-sm leading-[1.55] text-[#c9c1b6] opacity-0 motion-reduce:opacity-100 lg:mt-0 lg:text-base lg:leading-[1.7] lg:text-text-on-dark/65"
             data-supply-capability-intro
           >
             Từ lựa chọn nguồn hàng, xác nhận chỉ tiêu đến điều phối giao nhận —

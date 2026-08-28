@@ -52,9 +52,9 @@ export function WhyUs() {
     <section id="gioi-thieu" className="relative isolate overflow-hidden bg-white px-5 py-12 sm:px-8 lg:px-20 lg:py-20" aria-labelledby="why-us-title">
       <WhyUsMotion>
         <div data-why-us-heading className="mx-auto max-w-[900px] text-center">
-          <p className="text-[11px] font-bold tracking-[0.21em] text-ember-dark sm:text-xs sm:tracking-[0.25em]">TIÊU CHÍ HOẠT ĐỘNG &amp; NĂNG LỰC CUNG ỨNG</p>
-          <h2 id="why-us-title" className="mt-2 font-heading text-[28px] font-bold leading-tight text-coal-dark sm:text-4xl">Tại sao các nhà máy tin chọn Than Đá Thái Bình?</h2>
-          <p className="mt-2 text-[13px] leading-[1.55] text-text-muted sm:text-[15px]">Cam kết nguồn cung ổn định, chất lượng kiểm định và dịch vụ vận chuyển nhanh chóng cho mọi doanh nghiệp sản xuất.</p>
+          <p className="text-[13px] font-bold tracking-[0.21em] text-ember-dark sm:text-sm sm:tracking-[0.25em]">TIÊU CHÍ HOẠT ĐỘNG &amp; NĂNG LỰC CUNG ỨNG</p>
+          <h2 id="why-us-title" className="mt-2 font-heading text-[30px] font-bold leading-tight text-coal-dark sm:text-5xl">Tại sao các nhà máy tin chọn Than Đá Thái Bình?</h2>
+          <p className="mt-2 text-[15px] leading-[1.55] text-text-muted sm:text-[17px]">Cam kết nguồn cung ổn định, chất lượng kiểm định và dịch vụ vận chuyển nhanh chóng cho mọi doanh nghiệp sản xuất.</p>
         </div>
 
         <div data-why-us-content className="mt-10 grid gap-8 lg:mx-auto lg:mt-12 lg:max-w-[1204px] lg:grid-cols-3 lg:items-center">
@@ -93,8 +93,8 @@ export function WhyUs() {
             />
             <div className="absolute inset-0 bg-coal-dark/35" />
             <div data-why-us-media-copy className="absolute inset-x-5 bottom-5 rounded-md bg-coal-dark/90 px-4 py-3">
-              <p className="text-[11px] font-bold tracking-[0.15em] text-ember-gold">ĐƠN HÀNG TỪ 10 TẤN TRỞ LÊN</p>
-              <p className="mt-1 text-[13px] font-light text-white">Giao tận kho các nhà máy khu vực phía Nam</p>
+              <p className="text-[13px] font-bold tracking-[0.15em] text-ember-gold">ĐƠN HÀNG TỪ 10 TẤN TRỞ LÊN</p>
+              <p className="mt-1 text-[15px] font-light text-white">Giao tận kho các nhà máy khu vực phía Nam</p>
             </div>
           </div>
         </div>

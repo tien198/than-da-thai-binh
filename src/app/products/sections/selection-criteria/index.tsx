@@ -33,12 +33,12 @@ export function SelectionCriteria() {
           data-selection-criteria-reveal
           data-reveal-order="0"
         >
-          <p className="text-[9px] font-bold tracking-[0.16em] text-ember-dark">
+          <p className="text-[11px] font-bold tracking-[0.16em] text-ember-dark">
             CHỌN THEO HỆ LÒ
           </p>
           <h2
             id="selection-criteria-title"
-            className="mt-3 font-display text-[27px] font-semibold leading-tight text-coal-dark lg:mt-1 lg:text-2xl lg:font-normal"
+            className="mt-3 font-display text-[29px] font-semibold leading-tight text-coal-dark lg:mt-1 lg:text-3xl lg:font-normal"
           >
             Không chỉ chọn theo tên than.
           </h2>

@@ -39,7 +39,7 @@ export function MobileNav({
           href={isAboutPage ? "/gioi-thieu" : "/"}
           activePathnames={isAboutPage ? aboutRouteAliases : undefined}
           end
-          className="flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-white"
+          className="flex items-center gap-2 text-[13px] font-bold tracking-[0.08em] text-white"
         >
           <ActiveIcon
             className="size-[15px] text-brand-flame"
@@ -55,7 +55,7 @@ export function MobileNav({
           onClick={onOpen}
           className="flex items-center gap-2 text-white"
         >
-          <span className="text-[9px] font-bold tracking-[0.1em] text-[#beb6ac]">
+          <span className="text-[11px] font-bold tracking-[0.1em] text-[#beb6ac]">
             MENU
           </span>
           <Menu className="size-[18px]" aria-hidden="true" />

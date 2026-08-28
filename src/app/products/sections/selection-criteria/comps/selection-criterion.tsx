@@ -23,10 +23,10 @@ export function SelectionCriterion({
         <Icon className="size-5 lg:size-[17px]" aria-hidden="true" />
       </span>
       <div>
-        <h3 className="text-[9px] font-bold tracking-[0.09em] text-coal-dark">
+        <h3 className="text-[11px] font-bold tracking-[0.09em] text-coal-dark">
           {label}
         </h3>
-        <p className="mt-0.5 text-[11px] leading-[15px] text-text-muted">
+        <p className="mt-0.5 text-[13px] leading-[15px] text-text-muted">
           {description}
         </p>
       </div>

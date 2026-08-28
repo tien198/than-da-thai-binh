@@ -24,19 +24,19 @@ export function StoryFigure() {
           className="opacity-0 motion-reduce:opacity-100"
           data-company-story-caption-part
         >
-          <span className="block text-[8px] font-bold leading-[1.1] tracking-[0.14em] text-ember-light lg:text-[9px] lg:tracking-[0.2em]">
+          <span className="block text-[10px] font-bold leading-[1.1] tracking-[0.14em] text-ember-light lg:text-[11px] lg:tracking-[0.2em]">
             TUYẾN CUNG ỨNG
           </span>
-          <span className="mt-0.5 block text-[10px] leading-[1.35] text-white lg:text-[13px] lg:font-semibold">
+          <span className="mt-0.5 block text-[12px] leading-[1.35] text-white lg:text-[15px] lg:font-semibold">
             Quảng Ninh&nbsp; → &nbsp;Kho trung chuyển&nbsp; → &nbsp;Nhà máy phía
             Nam
           </span>
-          <span className="mt-0.5 block text-[8px] font-semibold text-[#91877b] lg:hidden">
+          <span className="mt-0.5 block text-[10px] font-semibold text-[#91877b] lg:hidden">
             TD•TB / 1995
           </span>
         </span>
         <span
-          className="hidden font-display text-[13px] font-semibold tracking-[0.15em] text-text-on-dark/55 opacity-0 motion-reduce:opacity-100 lg:block"
+          className="hidden font-display text-[15px] font-semibold tracking-[0.15em] text-text-on-dark/55 opacity-0 motion-reduce:opacity-100 lg:block"
           data-company-story-caption-part
         >
           TD•TB / 1995

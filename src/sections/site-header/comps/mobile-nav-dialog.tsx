@@ -59,7 +59,7 @@ export function MobileNavDialog({
           onClick={(event) => onNavigate(event, "/")}
           className={({ isActive }) =>
             cn(
-              "flex items-center gap-2 border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider",
+              "flex items-center gap-2 border-b border-white/10 px-3 py-4 text-base font-bold tracking-wider",
               isActive ? "text-ember-gold" : "text-text-on-dark",
             )
           }
@@ -80,7 +80,7 @@ export function MobileNavDialog({
             onClick={(event) => onNavigate(event, item.href)}
             className={({ isActive }) =>
               cn(
-                "block border-b border-white/10 px-3 py-4 text-sm font-bold tracking-wider last:border-0",
+                "block border-b border-white/10 px-3 py-4 text-base font-bold tracking-wider last:border-0",
                 isActive ? "text-ember-gold" : "text-text-on-dark",
               )
             }
@@ -93,7 +93,7 @@ export function MobileNavDialog({
           href="/gioi-thieu#lien-he"
           activePathnames={aboutRouteAliases}
           onClick={(event) => onNavigate(event, "/gioi-thieu#lien-he")}
-          className="mt-auto flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-sm font-bold text-coal-black"
+          className="mt-auto flex items-center justify-center gap-2 rounded-sm bg-ember-gold px-4 py-3 text-base font-bold text-coal-black"
         >
           <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
         </NavLink>

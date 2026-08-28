@@ -31,10 +31,10 @@ export function ProvenanceLedger() {
           data-about-hero-ledger-item
           data-reveal-order={index}
         >
-          <dt className="order-2 mt-0.5 text-[8px] font-semibold leading-[1.2] tracking-[0.0875em] text-[#beb6ac] lg:mt-0 lg:text-[10px] lg:font-bold lg:leading-[1.4] lg:tracking-[0.18em] lg:text-text-on-dark/65">
+          <dt className="order-2 mt-0.5 text-[10px] font-semibold leading-[1.2] tracking-[0.0875em] text-[#beb6ac] lg:mt-0 lg:text-[12px] lg:font-bold lg:leading-[1.4] lg:tracking-[0.18em] lg:text-text-on-dark/65">
             {item.label}
           </dt>
-          <dd className="order-1 font-display text-xl font-bold text-ember-light lg:text-[28px] lg:font-semibold lg:leading-[1.2]">
+          <dd className="order-1 font-display text-2xl font-bold text-ember-light lg:text-[30px] lg:font-semibold lg:leading-[1.2]">
             {item.value}
           </dd>
         </div>

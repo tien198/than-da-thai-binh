@@ -53,14 +53,14 @@ export function CompanyCommitment() {
             data-company-commitment-quote-part
           />
           <p
-            className="mt-5 font-display text-2xl font-medium leading-[1.15] opacity-0 motion-reduce:opacity-100 lg:mt-7 lg:text-4xl lg:leading-[1.2]"
+            className="mt-5 font-display text-3xl font-medium leading-[1.15] opacity-0 motion-reduce:opacity-100 lg:mt-7 lg:text-5xl lg:leading-[1.2]"
             data-company-commitment-quote-part
           >
             “Sự ổn định của nguồn nhiên liệu là nhịp đập của một dây chuyền sản
             xuất.”
           </p>
           <footer
-            className="mt-auto text-[8px] font-bold tracking-[0.1125em] text-ember-light opacity-0 motion-reduce:opacity-100 lg:text-[9px] lg:tracking-[0.2em]"
+            className="mt-auto text-[10px] font-bold tracking-[0.1125em] text-ember-light opacity-0 motion-reduce:opacity-100 lg:text-[11px] lg:tracking-[0.2em]"
             data-company-commitment-quote-part
           >
             THAN ĐÁ THÁI BÌNH&nbsp; • &nbsp;CAM KẾT CUNG ỨNG
@@ -70,17 +70,17 @@ export function CompanyCommitment() {
         <div>
           <div data-company-commitment-heading>
             <div className="flex items-center gap-3 opacity-0 motion-reduce:opacity-100">
-              <span className="font-display text-[11px] font-bold text-ember-dark lg:text-xs">
+              <span className="font-display text-[13px] font-bold text-ember-dark lg:text-sm">
                 03
               </span>
               <span className="h-px w-7 bg-ember-dark lg:w-10" />
-              <p className="text-[9px] font-bold tracking-[0.13em] text-ember-dark lg:text-[11px] lg:tracking-[0.24em]">
+              <p className="text-[11px] font-bold tracking-[0.13em] text-ember-dark lg:text-[13px] lg:tracking-[0.24em]">
                 CAM KẾT CỦA CHÚNG TÔI
               </p>
             </div>
             <h2
               id="company-commitment-title"
-              className="mt-6 font-display text-[31px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-3 lg:text-[40px] lg:leading-[1.08]"
+              className="mt-6 font-display text-[33px] font-semibold leading-[1.04] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-3 lg:text-[42px] lg:leading-[1.08]"
             >
               Bốn điều giữ vững
               <br />

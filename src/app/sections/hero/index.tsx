@@ -22,20 +22,20 @@ export function Hero() {
         <div className="max-w-[700px]">
           <div className="mb-5 flex items-center gap-2.5">
             <span className="h-0.5 w-8 bg-ember-dark" />
-            <p className="text-[11px] font-semibold tracking-[0.23em] text-ember-dark sm:text-xs">
+            <p className="text-[13px] font-semibold tracking-[0.23em] text-ember-dark sm:text-sm">
               NHÀ CUNG CẤP THAN ĐÁ UY TÍN
             </p>
           </div>
           <h1
             id="hero-title"
-            className="font-alumni-sans text-[42px] font-bold leading-[1.04] tracking-[-0.03em] sm:text-5xl lg:text-[56px]"
+            className="font-alumni-sans text-[44px] font-bold leading-[1.04] tracking-[-0.03em] sm:text-6xl lg:text-[58px]"
           >
             <span className="block text-coal-dark">THAN QUẢNG NINH</span>
             <span className="font-alumni-sans text-primary block">
               CHẤT LƯỢNG CAO
             </span>
           </h1>
-          <p className="mt-5 max-w-[600px] text-[14px] leading-[1.65] text-coal-dark sm:text-base">
+          <p className="mt-5 max-w-[600px] text-[16px] leading-[1.65] text-coal-dark sm:text-lg">
             <strong className="font-bold">CÔNG TY THAN ĐÁ THÁI BÌNH</strong>{" "}
             chuyên cung cấp than đá Quảng Ninh chất lượng cao khu vực phía Nam.
             Phục vụ các nhà máy, xí nghiệp và doanh nghiệp sản xuất — đáp ứng
@@ -44,14 +44,14 @@ export function Hero() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
               href="#lien-he"
-              className="flex h-[52px] items-center justify-center gap-2 rounded-sm bg-ember-gold px-9 text-[15px] font-bold text-coal-black transition-colors hover:bg-ember-light"
+              className="flex h-[52px] items-center justify-center gap-2 rounded-sm bg-ember-gold px-9 text-[17px] font-bold text-coal-black transition-colors hover:bg-ember-light"
             >
               <FileText className="size-4" aria-hidden="true" /> Nhận báo giá
               ngay
             </a>
             <Link
               href="/san-pham"
-              className="flex h-12 items-center justify-center gap-2 rounded-sm border-[1.5px] border-coal-dark bg-white px-8 text-[15px] font-semibold text-coal-dark transition-colors hover:bg-cream-mid"
+              className="flex h-12 items-center justify-center gap-2 rounded-sm border-[1.5px] border-coal-dark bg-white px-8 text-[17px] font-semibold text-coal-dark transition-colors hover:bg-cream-mid"
             >
               Xem sản phẩm <ArrowRight className="size-4" aria-hidden="true" />
             </Link>

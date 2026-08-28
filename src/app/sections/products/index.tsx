@@ -46,14 +46,14 @@ export function Products() {
           <div>
             <p
               data-products-heading
-              className="font-alumni-sans text-primary text-xs font-semibold tracking-[0.2em]"
+              className="font-alumni-sans text-primary text-sm font-semibold tracking-[0.2em]"
             >
               SẢN PHẨM
             </p>
             <h2
               id="products-title"
               data-products-heading
-              className="mt-2 font-heading text-[30px] font-bold leading-tight text-coal-dark sm:text-4xl lg:text-[40px]"
+              className="mt-2 font-heading text-[32px] font-bold leading-tight text-coal-dark sm:text-5xl lg:text-[42px]"
             >
               Các loại than đá chúng tôi cung cấp
             </h2>
@@ -61,7 +61,7 @@ export function Products() {
           <a
             href="#lien-he"
             data-products-heading
-            className="hidden h-11 shrink-0 items-center gap-2 rounded-sm border border-coal-dark px-7 text-sm font-bold text-coal-dark transition-colors hover:bg-coal-dark hover:text-white sm:flex"
+            className="hidden h-11 shrink-0 items-center gap-2 rounded-sm border border-coal-dark px-7 text-base font-bold text-coal-dark transition-colors hover:bg-coal-dark hover:text-white sm:flex"
           >
             Nhận báo giá <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>

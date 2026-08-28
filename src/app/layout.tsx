@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         "font-sans",
       )}
     >
-      <body className="min-h-screen overflow-x-hidden bg-cream font-noto-sans text-coal-dark">
+      <body className="min-h-screen overflow-x-hidden bg-cream font-noto-sans text-lg text-coal-dark">
         <main>
           <SiteHeader />
           {children}

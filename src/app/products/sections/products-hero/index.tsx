@@ -28,7 +28,7 @@ export function ProductsHero() {
 
         <div className="relative z-10 order-1 lg:absolute lg:top-[76px] lg:left-20 lg:w-[620px]">
           <p
-            className="text-[10px] font-bold tracking-[0.18em] text-brand-flame opacity-0 motion-reduce:opacity-100 lg:text-[11px]"
+            className="text-[12px] font-bold tracking-[0.18em] text-brand-flame opacity-0 motion-reduce:opacity-100 lg:text-[13px]"
             data-products-hero-reveal
             data-reveal-order="0"
           >
@@ -36,7 +36,7 @@ export function ProductsHero() {
           </p>
           <h1
             id="products-hero-title"
-            className="mt-[18px] font-display text-[38px] font-semibold leading-[37px] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-4 lg:text-[54px] lg:font-normal lg:leading-[53px]"
+            className="mt-[18px] font-display text-[40px] font-semibold leading-[37px] tracking-[-0.02em] opacity-0 motion-reduce:opacity-100 lg:mt-4 lg:text-[56px] lg:font-normal lg:leading-[53px]"
             data-products-hero-reveal
             data-reveal-order="1"
           >
@@ -45,7 +45,7 @@ export function ProductsHero() {
             Lò vận hành đúng nhịp.
           </h1>
           <p
-            className="mt-[18px] max-w-[560px] text-sm leading-[22px] text-[#d7d0c6] opacity-0 motion-reduce:opacity-100 lg:mt-4 lg:text-base lg:leading-[25px]"
+            className="mt-[18px] max-w-[560px] text-base leading-[22px] text-[#d7d0c6] opacity-0 motion-reduce:opacity-100 lg:mt-4 lg:text-lg lg:leading-[25px]"
             data-products-hero-reveal
             data-reveal-order="2"
           >
@@ -54,7 +54,7 @@ export function ProductsHero() {
           </p>
           <a
             href="tel:0908607391"
-            className="mt-[18px] inline-flex items-center gap-2.5 rounded-sm bg-brand-flame px-[18px] py-3.5 text-[10px] font-bold tracking-[0.06em] opacity-0 transition-colors motion-reduce:opacity-100 hover:bg-ember-dark lg:mt-6 lg:px-[22px] lg:text-[11px]"
+            className="mt-[18px] inline-flex items-center gap-2.5 rounded-sm bg-brand-flame px-[18px] py-3.5 text-[12px] font-bold tracking-[0.06em] opacity-0 transition-colors motion-reduce:opacity-100 hover:bg-ember-dark lg:mt-6 lg:px-[22px] lg:text-[13px]"
             data-products-hero-reveal
             data-reveal-order="3"
           >

@@ -7,7 +7,7 @@ export function HeaderTopBar() {
     <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 border-b border-border px-5 sm:px-8 lg:h-[92px] lg:px-20">
       <BrandLogo />
 
-      <div className="hidden items-center gap-3 text-base font-base text-coal-dark lg:flex">
+      <div className="hidden items-center gap-3 text-lg font-base text-coal-dark lg:flex">
         <a
           href="tel:0908607391"
           className="group flex items-center gap-1.5 text-ember-dark"

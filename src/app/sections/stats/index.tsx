@@ -34,10 +34,10 @@ function StateItem({ label, value }: { label: string; value: string }) {
       key={label}
       className="relative flex min-h-[72px] flex-col justify-center border-border px-4 even:border-l lg:min-h-[58px] lg:border-l lg:px-10 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0"
     >
-      <em className="font-heading text-[26px] leading-none text-coal-dark lg:text-[32px]">
+      <em className="font-heading text-[28px] leading-none text-coal-dark lg:text-[34px]">
         {value}
       </em>
-      <span className="mt-1.5 text-xs font-medium text-text-muted lg:text-[13px]">
+      <span className="mt-1.5 text-sm font-medium text-text-muted lg:text-[15px]">
         {label}
       </span>
     </div>

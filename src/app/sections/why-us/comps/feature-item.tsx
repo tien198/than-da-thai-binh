@@ -26,8 +26,8 @@ export function FeatureItem({
         <Icon className="size-5" aria-hidden="true" />
       </span>
       <div data-why-us-copy className="min-w-0">
-        <h3 className="font-heading text-[17px] font-light text-coal-dark">{title}</h3>
-        <p className="mt-1 text-[13px] leading-[1.5] text-text-muted">{description}</p>
+        <h3 className="font-heading text-[19px] font-light text-coal-dark">{title}</h3>
+        <p className="mt-1 text-[15px] leading-[1.5] text-text-muted">{description}</p>
       </div>
     </article>
   );

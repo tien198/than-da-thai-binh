@@ -3,7 +3,6 @@ import { ProductBody } from "./product-body";
 import { ProductDetails } from "./product-details";
 import { ProductImage } from "./product-image";
 import { ProductIntro } from "./product-intro";
-import { ProductSectionMotion } from "./product-section-motion";
 import { ProjectGallery } from "./project-gallery";
 
 type ProductSectionProps = {
@@ -20,58 +19,37 @@ export function ProductSection({ index, product }: ProductSectionProps) {
       className={`overflow-hidden ${index % 2 === 0 ? "bg-white" : "bg-cream-mid"}`}
       aria-labelledby={headingId}
     >
-      <ProductSectionMotion index={index}>
+      <div className="mx-auto max-w-[1440px] px-5 py-[52px] sm:px-8 lg:px-20 lg:py-16">
         <div className="flex flex-col gap-[17px] lg:hidden">
-          <div
-            className="flex flex-col gap-[17px] opacity-0 motion-reduce:opacity-100"
-            data-product-section-mobile-item
-          >
+          <div className="flex flex-col gap-[17px]">
             <ProductIntro headingId={headingId} product={product} />
           </div>
-          <div
-            className="opacity-0 motion-reduce:opacity-100"
-            data-product-section-mobile-item
-          >
+          <div>
             <ProductImage product={product} />
           </div>
           {index === 0 ? (
-            <div
-              className="opacity-0 motion-reduce:opacity-100"
-              data-product-section-mobile-item
-            >
+            <div>
               <ProjectGallery variant="mobile" />
             </div>
           ) : null}
-          <div
-            className="opacity-0 motion-reduce:opacity-100"
-            data-product-section-mobile-item
-          >
+          <div>
             <ProductBody product={product} />
           </div>
         </div>
         <div className="hidden items-center gap-8 lg:grid lg:grid-cols-[520px_minmax(0,1fr)] lg:gap-[72px]">
-          <div
-            className={`opacity-0 motion-reduce:opacity-100 ${copyFirst ? "lg:order-2" : ""}`}
-            data-product-section-media
-          >
+          <div className={copyFirst ? "lg:order-2" : undefined}>
             <ProductImage product={product} />
           </div>
-          <div
-            className={`opacity-0 motion-reduce:opacity-100 ${copyFirst ? "lg:order-1" : ""}`}
-            data-product-section-copy
-          >
+          <div className={copyFirst ? "lg:order-1" : undefined}>
             <ProductDetails product={product} />
           </div>
         </div>
         {index === 0 ? (
-          <div
-            className="hidden opacity-0 motion-reduce:opacity-100 lg:block"
-            data-product-section-gallery
-          >
+          <div className="hidden lg:block">
             <ProjectGallery variant="desktop" />
           </div>
         ) : null}
-      </ProductSectionMotion>
+      </div>
     </section>
   );
 }

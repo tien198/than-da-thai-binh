@@ -22,10 +22,10 @@ export function CommitmentItem({
       <span className="grid size-[34px] place-items-center bg-white lg:hidden">
         <Icon className="size-4 text-ember-dark" aria-hidden="true" />
       </span>
-      <h3 className="font-display text-[15px] font-semibold leading-[1.2] text-coal-dark lg:text-lg">
+      <h3 className="font-display text-[17px] font-semibold leading-[1.2] text-coal-dark lg:text-xl">
         {title}
       </h3>
-      <p className="col-start-2 mt-0.5 text-[11px] leading-[1.4] text-text-muted lg:mt-0 lg:text-[13px] lg:leading-[1.55]">
+      <p className="col-start-2 mt-0.5 text-[13px] leading-[1.4] text-text-muted lg:mt-0 lg:text-[15px] lg:leading-[1.55]">
         {description}
       </p>
     </article>

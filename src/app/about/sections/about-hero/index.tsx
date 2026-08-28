@@ -39,7 +39,7 @@ export function AboutHero() {
               data-about-hero-rule
             />
             <p
-              className="text-[9px] font-bold leading-none tracking-[0.17em] text-ember-light opacity-0 motion-reduce:opacity-100 lg:text-xs lg:tracking-[0.25em]"
+              className="text-[11px] font-bold leading-none tracking-[0.17em] text-ember-light opacity-0 motion-reduce:opacity-100 lg:text-sm lg:tracking-[0.25em]"
               data-about-hero-reveal
               data-reveal-order="0"
             >
@@ -49,7 +49,7 @@ export function AboutHero() {
 
           <h1
             id="about-hero-title"
-            className="mt-3 font-display text-[38px] font-semibold leading-[0.98] tracking-[-0.025em] opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:text-[58px] lg:leading-[1.03]"
+            className="mt-3 font-display text-[40px] font-semibold leading-[0.98] tracking-[-0.025em] opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:text-[60px] lg:leading-[1.03]"
             data-about-hero-reveal
             data-reveal-order="1"
           >
@@ -59,14 +59,14 @@ export function AboutHero() {
           </h1>
 
           <p
-            className="mt-3 font-display text-sm leading-[1.35] text-ember-light opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:font-body lg:text-lg lg:font-semibold"
+            className="mt-3 font-display text-base leading-[1.35] text-ember-light opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:font-body lg:text-xl lg:font-semibold"
             data-about-hero-reveal
             data-reveal-order="2"
           >
             “Đốt sáng niềm tin, thắp lửa thành công.”
           </p>
           <p
-            className="mt-2 max-w-[560px] text-[13px] leading-[1.5] text-[#d9d2c8] opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:text-[15px] lg:leading-[1.65] lg:text-text-on-dark/80"
+            className="mt-2 max-w-[560px] text-[15px] leading-[1.5] text-[#d9d2c8] opacity-0 motion-reduce:opacity-100 lg:mt-5 lg:text-[17px] lg:leading-[1.65] lg:text-text-on-dark/80"
             data-about-hero-reveal
             data-reveal-order="3"
           >
