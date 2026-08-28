@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "sSIUF.webp",
+        url: "/images/products/sSIUF.webp",
         width: 1040,
         height: 720,
         alt: "Than Đá Thái Bình",
