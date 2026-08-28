@@ -17,7 +17,7 @@ const products = [
     title: "Than đá Indonesia",
     description:
       "Độ bốc cao, dễ bắt lửa và nguồn cung linh hoạt; phù hợp lò hơi cần vận hành liên tục.",
-    image: "/images/home/2aOboQu0imc1LApc6pZh51UWgv0n9uS1GGWHeNv6.jpg",
+    image: "/images/products/tcP1f.webp",
     imageAlt: "Than đá Indonesia",
   },
   {
@@ -25,7 +25,7 @@ const products = [
     title: "Than đá Úc",
     description:
       "Nhiệt trị cao, độ tro được kiểm soát; phù hợp dây chuyền ưu tiên hiệu suất nhiệt và chất lượng ổn định.",
-    image: "/images/home/2aOboQu0isHZV3YE7L3Md6bBPCr3BxfUCerEew0O.jpg",
+    image: "/images/products/v2bSl.webp",
     imageAlt: "Than đá Úc",
   },
   {
@@ -33,7 +33,7 @@ const products = [
     title: "Than đá Nam Phi",
     description:
       "Nhiệt trị tốt, cháy ổn định và phù hợp phối trộn; cân bằng hiệu suất vận hành với chi phí nhiên liệu.",
-    image: "/images/home/2aOboQu0iuXFa5dm2YfRn3GkjParmeZH24SlZ2VU.jpg",
+    image: "/images/products/v3EutY.webp",
     imageAlt: "Than đá Nam Phi",
   },
 ];
