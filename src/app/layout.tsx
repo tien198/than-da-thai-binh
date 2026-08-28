@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist_Mono, Noto_Sans } from "next/font/google";
-import { Phone, PhoneCall } from "lucide-react";
+import { Phone } from "lucide-react";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import { SiteFooter } from "@/sections/site-footer";
 import { SiteHeader } from "@/sections/site-header";
+import { AppScript } from "./script";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--next-font-bricolage-grotesque",
@@ -25,10 +26,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Công ty than Thái Bình",
+  metadataBase: new URL(siteUrl),
+  title: "Cty Than Đá Thái Bình",
   description:
-    " cung cấp than đá Quảng Ninh chất lượng cao khu vực phía Nam. Phục vụ các nhà máy, xí nghiệp và doanh nghiệp sản xuất — đáp ứng đơn hàng từ 10 tấn trở lên.",
+    "Than Đá Thái Bình cung cấp than Quảng Ninh và than nhập khẩu cho nhà máy phía Nam. Nhận đơn từ 10 tấn, kiểm soát chất lượng, giao đúng tiến độ.",
+  openGraph: {
+    images: [
+      {
+        url: "sSIUF.webp",
+        width: 1040,
+        height: 720,
+        alt: "Than Đá Thái Bình",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -67,6 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </span>
         </a>
       </body>
+      <AppScript />
     </html>
   );
 }
