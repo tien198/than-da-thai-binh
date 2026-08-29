@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   title: "Cty Than Đá Thái Bình",
   description:
     "Than Đá Thái Bình cung cấp than Quảng Ninh và than nhập khẩu cho nhà máy phía Nam. Nhận đơn từ 10 tấn, kiểm soát chất lượng, giao đúng tiến độ.",
+  icons: {
+    icon: "/images/og/Lb5iP.webp",
+  },
   openGraph: {
     images: [
       {
